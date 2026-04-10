@@ -235,6 +235,16 @@
     .lb-prev{left:.3rem;}
     .lb-next{right:.3rem;}
   }
+
+  /* ── CONTACT ACTION BUTTONS ── */
+  .cf-action-btn{display:flex;align-items:center;gap:1.2rem;background:rgba(242,232,208,.1);border:1px solid rgba(242,232,208,.18);padding:1rem 1.4rem;text-decoration:none;transition:all .2s;cursor:pointer;}
+  .cf-action-btn:hover{background:rgba(242,232,208,.18);transform:translateX(4px);}
+  .cf-btn-resume{background:rgba(201,147,58,.15);border-color:rgba(201,147,58,.35);}
+  .cf-btn-resume:hover{background:rgba(201,147,58,.25);}
+  .cf-btn-icon{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--cream);width:2.2rem;text-align:center;flex-shrink:0;line-height:1;}
+  .cf-btn-text{display:flex;flex-direction:column;gap:.15rem;}
+  .cf-btn-label{font-family:'Archivo Black',sans-serif;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);}
+  .cf-btn-sub{font-size:.7rem;color:rgba(242,232,208,.45);letter-spacing:.05em;}
 </style>
 </head>
 <body>
@@ -583,19 +593,32 @@
       <h2 class="contact-headline">Let's Make<br>Something <em>Real.</em></h2>
       <p class="contact-intro">Open to brand campaigns, event creative direction, and design collaborations. If you've got a bold idea, I'm already interested.</p>
       <div class="socials">
-        <!-- Replace # with your actual profile links -->
-        <a class="social" href="#" target="_blank">Instagram</a>
-        <a class="social" href="#" target="_blank">LinkedIn</a>
-        <a class="social" href="#" target="_blank">Behance</a>
-        <a class="social" href="mailto:your@email.com">Email</a>
+        <a class="social" href="mailto:winni.tan7@gmail.com">✉ Email</a>
+        <a class="social" href="https://www.linkedin.com/in/winni-tan-sze-nie-3961b8151/" target="_blank">in LinkedIn</a>
       </div>
     </div>
-    <div class="cf reveal-right">
-      <input type="text" placeholder="Your Name"/>
-      <input type="email" placeholder="Your Email"/>
-      <input type="text" placeholder="Subject"/>
-      <textarea rows="4" placeholder="Tell me about your project..."></textarea>
-      <button class="cf-btn">Send It →</button>
+    <div class="reveal-right" style="display:flex;flex-direction:column;gap:1.2rem;justify-content:center;">
+      <a class="cf-action-btn" href="mailto:winni.tan7@gmail.com">
+        <span class="cf-btn-icon">✉</span>
+        <span class="cf-btn-text">
+          <span class="cf-btn-label">Send me an email</span>
+          <span class="cf-btn-sub">winni.tan7@gmail.com</span>
+        </span>
+      </a>
+      <a class="cf-action-btn" href="https://www.linkedin.com/in/winni-tan-sze-nie-3961b8151/" target="_blank">
+        <span class="cf-btn-icon">in</span>
+        <span class="cf-btn-text">
+          <span class="cf-btn-label">Connect on LinkedIn</span>
+          <span class="cf-btn-sub">Winni Tan Sze Nie</span>
+        </span>
+      </a>
+      <a class="cf-action-btn cf-btn-resume" href="Resume__Winni_Tan_Sze_Nie_.pdf" download>
+        <span class="cf-btn-icon">↓</span>
+        <span class="cf-btn-text">
+          <span class="cf-btn-label">Download My Resume</span>
+          <span class="cf-btn-sub">PDF · Updated 2026</span>
+        </span>
+      </a>
     </div>
   </div>
 </section>
@@ -604,9 +627,8 @@
 <footer>
   <span class="ft">© 2026 Winni Tan</span>
   <div class="ft-links">
-    <a class="ft-link" href="#" target="_blank">Instagram</a>
-    <a class="ft-link" href="#" target="_blank">LinkedIn</a>
-    <a class="ft-link" href="#" target="_blank">Behance</a>
+    <a class="ft-link" href="mailto:winni.tan7@gmail.com">Email</a>
+    <a class="ft-link" href="https://www.linkedin.com/in/winni-tan-sze-nie-3961b8151/" target="_blank">LinkedIn</a>
   </div>
   <span class="ft">Marketing Executive & Designer · Singapore</span>
 </footer>
