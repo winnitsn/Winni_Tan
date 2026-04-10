@@ -245,6 +245,16 @@
   .cf-btn-text{display:flex;flex-direction:column;gap:.15rem;}
   .cf-btn-label{font-family:'Archivo Black',sans-serif;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);}
   .cf-btn-sub{font-size:.7rem;color:rgba(242,232,208,.45);letter-spacing:.05em;}
+
+  /* ── BRANDS ── */
+  .brands-section{background:var(--ink);padding:3rem 3rem;border-bottom:1px solid rgba(255,255,255,.06);}
+  .brands-label{font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(242,232,208,.28);text-align:center;margin-bottom:1.8rem;}
+  .brands-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;}
+  .brand-tile{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:.85rem 1rem;display:flex;flex-direction:column;gap:.2rem;transition:all .2s;cursor:default;}
+  .brand-tile:hover{background:rgba(255,255,255,.08);border-color:rgba(201,147,58,.3);transform:translateY(-2px);}
+  .brand-name{font-family:'Archivo Black',sans-serif;font-size:.78rem;color:var(--cream);line-height:1.2;}
+  .brand-cat{font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(242,232,208,.28);}
+  @media(max-width:768px){.brands-grid{grid-template-columns:repeat(2,1fr);}.brands-section{padding:2.5rem 1.5rem;}}
 </style>
 </head>
 <body>
@@ -283,8 +293,8 @@
     </div>
     <div class="hero-bottom-row">
       <div class="hero-side">
-        <span class="hero-side-tag">Self-Taught Designer</span>
-        <p class="hero-bio-side">Business grad who mastered <strong>Illustrator, Photoshop & video</strong> on her own.</p>
+        <span class="hero-side-tag">Designer &amp; Marketer</span>
+        <p class="hero-bio-side">Business grad fluent in <strong>Illustrator, Photoshop & video</strong> — strategy and design in one.</p>
         <button class="hero-btn" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">See My Work</button>
       </div>
       <div class="hero-photo-wrap">
@@ -324,13 +334,39 @@
   </div>
   <div class="reveal-right">
     <div class="ab-right">
-      <div class="ab-skill"><span class="ab-skill-name">Adobe Illustrator</span><span class="ab-skill-tag">Self-Taught</span></div>
-      <div class="ab-skill"><span class="ab-skill-name">Adobe Photoshop</span><span class="ab-skill-tag">Self-Taught</span></div>
-      <div class="ab-skill gold"><span class="ab-skill-name">Video Editing</span><span class="ab-skill-tag">Self-Taught</span></div>
+      <div class="ab-skill"><span class="ab-skill-name">Adobe Illustrator</span><span class="ab-skill-tag">Campaign Collateral</span></div>
+      <div class="ab-skill"><span class="ab-skill-name">Adobe Photoshop</span><span class="ab-skill-tag">Visual Design</span></div>
+      <div class="ab-skill gold"><span class="ab-skill-name">Canva</span><span class="ab-skill-tag">Design & Presentations</span></div>
+      <div class="ab-skill gold"><span class="ab-skill-name">Video Editing</span><span class="ab-skill-tag">Social & Events</span></div>
+      <div class="ab-skill sage"><span class="ab-skill-name">AI-Assisted Design</span><span class="ab-skill-tag">Midjourney · ChatGPT</span></div>
       <div class="ab-skill sage"><span class="ab-skill-name">Event Design & Execution</span><span class="ab-skill-tag">3+ Years</span></div>
-      <div class="ab-skill sage"><span class="ab-skill-name">Marketing & Campaigns</span><span class="ab-skill-tag">Strategy → Reality</span></div>
+      <div class="ab-skill sage"><span class="ab-skill-name">Marketing & Campaigns</span><span class="ab-skill-tag">Strategy → Execution</span></div>
       <div class="ab-skill gold"><span class="ab-skill-name">Brand Storytelling</span><span class="ab-skill-tag">Travel & Lifestyle</span></div>
     </div>
+  </div>
+</section>
+
+
+<!-- BRANDS -->
+<section class="brands-section">
+  <p class="brands-label">Brands I've Worked With</p>
+  <div class="brands-grid">
+    <div class="brand-tile"><span class="brand-name">Singapore Airlines</span><span class="brand-cat">Airline</span></div>
+    <div class="brand-tile"><span class="brand-name">Royal Caribbean</span><span class="brand-cat">Cruise Line</span></div>
+    <div class="brand-tile"><span class="brand-name">Disney Cruise Line</span><span class="brand-cat">Cruise Line</span></div>
+    <div class="brand-tile"><span class="brand-name">Star Dream Cruises</span><span class="brand-cat">Cruise Line</span></div>
+    <div class="brand-tile"><span class="brand-name">Avalon River Cruise</span><span class="brand-cat">Cruise Line</span></div>
+    <div class="brand-tile"><span class="brand-name">Trafalgar</span><span class="brand-cat">Tour Operator</span></div>
+    <div class="brand-tile"><span class="brand-name">NATAS</span><span class="brand-cat">Travel Association</span></div>
+    <div class="brand-tile"><span class="brand-name">Citibank</span><span class="brand-cat">Banking Partner</span></div>
+    <div class="brand-tile"><span class="brand-name">UOB Bank</span><span class="brand-cat">Banking Partner</span></div>
+    <div class="brand-tile"><span class="brand-name">Singapore Tourism Board</span><span class="brand-cat">Tourism Board</span></div>
+    <div class="brand-tile"><span class="brand-name">Taiwan Tourism</span><span class="brand-cat">Tourism Board</span></div>
+    <div class="brand-tile"><span class="brand-name">Hong Kong Tourism</span><span class="brand-cat">Tourism Board</span></div>
+    <div class="brand-tile"><span class="brand-name">Korea Tourism</span><span class="brand-cat">Tourism Board</span></div>
+    <div class="brand-tile"><span class="brand-name">China Tourism</span><span class="brand-cat">Tourism Board</span></div>
+    <div class="brand-tile"><span class="brand-name">Tourism Australia</span><span class="brand-cat">Tourism Board</span></div>
+    <div class="brand-tile"><span class="brand-name">Tourism New Zealand</span><span class="brand-cat">Tourism Board</span></div>
   </div>
 </section>
 
