@@ -1,0 +1,439 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8"/>
+<meta name="viewport" content="width=device-width, initial-scale=1.0"/>
+<title>Winni Tan — Marketing Executive & Creative Designer</title>
+<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo+Black&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet"/>
+<style>
+  *{box-sizing:border-box;margin:0;padding:0;}
+  :root{
+    --ink:#1a1208;
+    --cream:#f2e8d0;
+    --olive:#3a4a1a;
+    --olive-mid:#4a5a20;
+    --rust:#b84a1e;
+    --gold:#c9933a;
+    --sage:#7a8c42;
+    --warm:#e8dfc4;
+    --light:#faf6ee;
+  }
+  html{scroll-behavior:smooth;}
+  body{background:var(--ink);font-family:'Space Grotesk',sans-serif;color:var(--ink);overflow-x:hidden;}
+
+  /* ── SCROLL ANIMATIONS ── */
+  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal.visible{opacity:1;transform:translateY(0);}
+  .reveal-left{opacity:0;transform:translateX(-28px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal-left.visible{opacity:1;transform:translateX(0);}
+  .reveal-right{opacity:0;transform:translateX(28px);transition:opacity .7s ease,transform .7s ease;}
+  .reveal-right.visible{opacity:1;transform:translateX(0);}
+
+  /* ── NAV ── */
+  nav{background:var(--ink);padding:1rem 3rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.07);position:sticky;top:0;z-index:200;}
+  .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.12em;color:var(--cream);}
+  .nav-links{display:flex;gap:2.5rem;}
+  .nav-links a{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);text-decoration:none;opacity:.7;cursor:pointer;transition:opacity .2s;}
+  .nav-links a:hover{opacity:1;}
+  .nav-cta{background:var(--rust);color:var(--cream)!important;opacity:1!important;padding:.35rem 1.2rem;}
+
+  /* ── HERO ── */
+  .hero{background:var(--olive);display:flex;flex-direction:column;}
+  .hero-top-bar{background:var(--ink);padding:.5rem 3rem;display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.05);}
+  .htb{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(242,232,208,.28);}
+  .htb.hi{color:var(--gold);}
+
+  .hero-center{background:var(--olive);padding:2.8rem 3rem 0;text-align:center;position:relative;border-bottom:3px solid var(--gold);}
+  .hero-presents{font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(242,232,208,.32);margin-bottom:.35rem;}
+  .hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(5.5rem,14vw,11rem);line-height:.82;color:var(--cream);animation:fadeDown .9s ease forwards;}
+  .hero-name span{color:var(--gold);display:block;}
+  @keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
+  .hero-subtitle{font-family:'DM Serif Display',serif;font-style:italic;font-size:1.05rem;color:rgba(242,232,208,.42);margin-top:.35rem;margin-bottom:1.6rem;}
+  .hero-divider{border:none;border-top:1px solid rgba(242,232,208,.1);margin-bottom:1.6rem;}
+
+  .hero-credits{display:flex;justify-content:center;gap:4rem;margin-bottom:2rem;}
+  .hero-credit{text-align:center;}
+  .hc-num{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:var(--rust);display:block;line-height:1;}
+  .hc-label{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(242,232,208,.38);}
+
+  .hero-bottom-row{display:flex;gap:2rem;align-items:flex-end;justify-content:center;}
+  .hero-side{display:flex;flex-direction:column;gap:.55rem;padding-bottom:2.5rem;max-width:155px;}
+  .hero-side-tag{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(242,232,208,.32);border-left:2px solid var(--rust);padding-left:.6rem;line-height:1.4;}
+  .hero-bio-side{font-size:.72rem;line-height:1.68;color:rgba(242,232,208,.48);}
+  .hero-bio-side strong{color:var(--gold);font-weight:500;}
+  .hero-btn{background:var(--rust);color:var(--cream);font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.15em;padding:.6rem 2rem;border:none;cursor:pointer;margin-top:.6rem;display:inline-block;transition:background .2s;}
+  .hero-btn:hover{background:var(--gold);color:var(--ink);}
+
+  .hero-photo-wrap{position:relative;}
+  .hero-photo{width:175px;aspect-ratio:2/3;background:linear-gradient(180deg,#5a7030 0%,#2e3a1f 100%);display:flex;align-items:flex-end;justify-content:center;padding-bottom:.6rem;border-top:3px solid var(--gold);position:relative;flex-shrink:0;overflow:hidden;}
+  .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;}
+  .hero-photo-i{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:rgba(255,255,255,.05);position:absolute;top:50%;transform:translateY(-50%);}
+  .hero-photo-h{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.18);position:relative;z-index:1;}
+
+  .hero-side-right{display:flex;flex-direction:column;gap:.55rem;padding-bottom:2.5rem;max-width:155px;align-items:flex-end;text-align:right;}
+  .hero-side-right .hero-side-tag{border-left:none;border-right:2px solid var(--gold);padding-left:0;padding-right:.6rem;}
+
+  /* ── ABOUT ── */
+  .about-band{background:var(--cream);padding:4rem 3rem;border-bottom:3px solid var(--ink);display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
+  .ab-sec-label{font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--rust);margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem;}
+  .ab-sec-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:rgba(26,18,8,.07);line-height:1;}
+  .ab-title{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--ink);line-height:.88;margin-bottom:1.3rem;}
+  .ab-bio{font-size:.85rem;line-height:1.82;color:var(--ink);opacity:.65;margin-bottom:1.6rem;}
+  .ab-bio strong{color:var(--rust);opacity:1;font-weight:600;}
+  .ab-ctas{display:flex;gap:.75rem;flex-wrap:wrap;}
+  .ab-btn1{background:var(--ink);color:var(--cream);font-family:'Archivo Black',sans-serif;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:.75rem 1.8rem;border:none;cursor:pointer;transition:background .2s;}
+  .ab-btn1:hover{background:var(--rust);}
+  .ab-btn2{background:transparent;color:var(--ink);font-family:'Archivo Black',sans-serif;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:.75rem 1.8rem;border:2px solid var(--ink);cursor:pointer;transition:all .2s;}
+  .ab-btn2:hover{border-color:var(--rust);color:var(--rust);}
+  .ab-right{display:flex;flex-direction:column;gap:.7rem;}
+  .ab-skill{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.1rem;background:var(--light);border-left:3px solid var(--rust);transition:transform .2s;}
+  .ab-skill:hover{transform:translateX(4px);}
+  .ab-skill.gold{border-left-color:var(--gold);}
+  .ab-skill.sage{border-left-color:var(--sage);}
+  .ab-skill-name{font-family:'Archivo Black',sans-serif;font-size:.8rem;color:var(--ink);}
+  .ab-skill-tag{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--rust);}
+  .ab-skill.gold .ab-skill-tag{color:var(--gold);}
+  .ab-skill.sage .ab-skill-tag{color:var(--sage);}
+
+  /* ── EVENTS ── */
+  .events-section{background:var(--ink);padding:4rem 3rem;border-bottom:3px solid var(--rust);}
+  .sec-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.07);}
+  .sec-num-title{display:flex;align-items:baseline;gap:.8rem;}
+  .sec-num{font-family:'Bebas Neue',sans-serif;font-size:4.5rem;color:rgba(255,255,255,.04);line-height:1;}
+  .sec-title{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:var(--cream);}
+  .events-section .sec-title{color:var(--cream);}
+  .sec-sub{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--rust);}
+
+  .events-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-bottom:.8rem;}
+  .ev-card{background:#22180e;border-bottom:3px solid var(--rust);padding:1.3rem 1.3rem 1.1rem;cursor:pointer;transition:background .2s,transform .2s;}
+  .ev-card:hover{background:#2e2010;transform:translateY(-2px);}
+  .ev-card:nth-child(2){border-bottom-color:var(--gold);}
+  .ev-card:nth-child(3){border-bottom-color:var(--sage);}
+  .ev-card-wide{grid-column:span 2;}
+  .ev-years{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.65rem;}
+  .ev-yr{font-family:'Bebas Neue',sans-serif;font-size:.8rem;letter-spacing:.1em;padding:.15rem .6rem;background:var(--rust);color:var(--cream);}
+  .ev-card:nth-child(2) .ev-yr{background:var(--gold);color:var(--ink);}
+  .ev-card:nth-child(3) .ev-yr{background:var(--sage);}
+  .ev-name{font-family:'Archivo Black',sans-serif;font-size:.95rem;color:var(--cream);line-height:1.3;margin-bottom:.4rem;}
+  .ev-type{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(242,232,208,.32);}
+
+  .roadshow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;}
+  .rs-card{background:#22180e;padding:.95rem 1.1rem;border-top:2px solid var(--gold);transition:background .2s,transform .2s;}
+  .rs-card:hover{background:#2e2010;transform:translateY(-2px);}
+  .rs-name{font-family:'Archivo Black',sans-serif;font-size:.82rem;color:var(--cream);margin-bottom:.3rem;line-height:1.3;}
+  .rs-type{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(242,232,208,.28);}
+
+  /* ── PORTFOLIO ── */
+  .portfolio-section{background:var(--warm);padding:4rem 3rem;border-bottom:3px solid var(--ink);}
+  .portfolio-section .sec-title{color:var(--ink);}
+  .portfolio-section .sec-num{color:rgba(26,18,8,.04);}
+  .portfolio-section .sec-sub{color:var(--olive-mid);}
+  .portfolio-section .sec-header{border-bottom-color:rgba(26,18,8,.08);}
+  .port-note{font-size:.72rem;color:rgba(26,18,8,.45);margin-bottom:1.5rem;font-style:italic;}
+
+  .port-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:.8rem;}
+  .port-item{position:relative;overflow:hidden;cursor:pointer;display:flex;align-items:flex-end;padding:.9rem;transition:transform .2s;}
+  .port-item:hover{transform:scale(1.02);}
+  .port-item:hover .port-hover{opacity:1;}
+  .port-hover{position:absolute;inset:0;background:rgba(184,74,30,.9);opacity:0;transition:opacity .25s;display:flex;align-items:center;justify-content:center;}
+  .port-hover span{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--cream);letter-spacing:.1em;}
+  .p1{grid-column:span 5;aspect-ratio:4/5;background:var(--olive-mid);}
+  .p2{grid-column:span 4;aspect-ratio:4/5;background:var(--rust);}
+  .p3{grid-column:span 3;aspect-ratio:4/5;background:var(--gold);}
+  .p4{grid-column:span 7;aspect-ratio:16/9;background:#6b5a2e;}
+  .p5{grid-column:span 5;aspect-ratio:16/9;background:var(--sage);}
+  .port-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
+  .port-label{font-family:'Bebas Neue',sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(0,0,0,.45);color:var(--cream);padding:.22rem .6rem;position:relative;z-index:1;}
+  .port-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;}
+  .port-placeholder span{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:rgba(255,255,255,.06);}
+
+  /* ── CONTACT ── */
+  .contact-section{background:var(--rust);padding:4rem 3rem;position:relative;overflow:hidden;}
+  .contact-bg{position:absolute;right:-1rem;bottom:-3rem;font-family:'Bebas Neue',sans-serif;font-size:16rem;color:rgba(0,0,0,.07);line-height:1;pointer-events:none;white-space:nowrap;user-select:none;}
+  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;position:relative;z-index:1;}
+  .contact-sec-label{font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(242,232,208,.48);margin-bottom:.8rem;}
+  .contact-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,5vw,5rem);line-height:.88;color:var(--cream);margin-bottom:1.1rem;}
+  .contact-headline em{font-style:italic;font-family:'DM Serif Display',serif;color:rgba(242,232,208,.6);}
+  .contact-intro{font-size:.85rem;line-height:1.78;color:rgba(242,232,208,.68);margin-bottom:2rem;}
+  .socials{display:flex;gap:.6rem;flex-wrap:wrap;}
+  .social{font-family:'Archivo Black',sans-serif;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(242,232,208,.12);color:var(--cream);padding:.42rem 1.1rem;cursor:pointer;border:1px solid rgba(242,232,208,.18);text-decoration:none;transition:all .2s;}
+  .social:hover{background:var(--cream);color:var(--rust);}
+  .cf{display:flex;flex-direction:column;gap:.9rem;}
+  .cf input,.cf textarea{background:rgba(255,255,255,.1);border:none;border-bottom:1px solid rgba(242,232,208,.22);padding:.78rem 0;font-family:'Space Grotesk',sans-serif;font-size:.88rem;color:var(--cream);outline:none;resize:none;transition:border-color .2s;}
+  .cf input::placeholder,.cf textarea::placeholder{color:rgba(242,232,208,.33);}
+  .cf input:focus,.cf textarea:focus{border-bottom-color:var(--cream);}
+  .cf-btn{align-self:flex-start;background:var(--ink);color:var(--cream);font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:.15em;padding:.68rem 2.2rem;border:none;cursor:pointer;transition:background .2s;}
+  .cf-btn:hover{background:var(--gold);color:var(--ink);}
+
+  /* ── FOOTER ── */
+  footer{background:var(--ink);padding:1.3rem 3rem;display:flex;justify-content:space-between;align-items:center;border-top:2px solid var(--rust);}
+  .ft{font-family:'Bebas Neue',sans-serif;font-size:.82rem;letter-spacing:.15em;color:var(--cream);opacity:.28;}
+  .ft-links{display:flex;gap:1.8rem;}
+  .ft-link{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);opacity:.48;cursor:pointer;text-decoration:none;transition:opacity .2s;}
+  .ft-link:hover{opacity:1;}
+
+  /* ── BACK TO TOP ── */
+  .back-top{position:fixed;bottom:2rem;right:2rem;background:var(--rust);color:var(--cream);font-family:'Bebas Neue',sans-serif;font-size:.85rem;letter-spacing:.12em;padding:.5rem 1rem;cursor:pointer;border:none;z-index:150;opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s;}
+  .back-top.show{opacity:1;transform:translateY(0);}
+  .back-top:hover{background:var(--gold);color:var(--ink);}
+
+  /* ── RESPONSIVE ── */
+  @media(max-width:768px){
+    nav{padding:1rem 1.5rem;}
+    .nav-links{gap:1.2rem;}
+    .hero-center{padding:2rem 1.5rem 0;}
+    .hero-credits{gap:1.5rem;}
+    .hero-bottom-row{flex-direction:column;align-items:center;}
+    .hero-side,.hero-side-right{max-width:100%;text-align:center;align-items:center;padding-bottom:1rem;}
+    .hero-side .hero-side-tag{border-left:none;border-bottom:1px solid var(--rust);padding-left:0;padding-bottom:.3rem;}
+    .hero-side-right .hero-side-tag{border-right:none;border-bottom:1px solid var(--gold);}
+    .about-band{grid-template-columns:1fr;gap:2rem;padding:2.5rem 1.5rem;}
+    .events-section,.portfolio-section,.contact-section{padding:2.5rem 1.5rem;}
+    .events-grid{grid-template-columns:1fr;}
+    .ev-card-wide{grid-column:span 1;}
+    .roadshow-grid{grid-template-columns:repeat(2,1fr);}
+    .port-grid{grid-template-columns:repeat(6,1fr);}
+    .p1,.p2,.p3{grid-column:span 3;}
+    .p4,.p5{grid-column:span 6;}
+    .contact-grid{grid-template-columns:1fr;gap:2.5rem;}
+    footer{flex-direction:column;gap:.8rem;text-align:center;padding:1.2rem;}
+  }
+</style>
+</head>
+<body>
+
+<!-- BACK TO TOP -->
+<button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Top</button>
+
+<!-- NAV -->
+<nav>
+  <span class="nav-logo">Winni Tan</span>
+  <div class="nav-links">
+    <a href="#about">About</a>
+    <a href="#events">Events</a>
+    <a href="#portfolio">Portfolio</a>
+    <a href="#contact" class="nav-cta">Contact</a>
+  </div>
+</nav>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-top-bar">
+    <span class="htb">Est. 2021</span>
+    <span class="htb hi">Portfolio 2026</span>
+    <span class="htb">Singapore</span>
+  </div>
+  <div class="hero-center">
+    <p class="hero-presents">Presenting</p>
+    <h1 class="hero-name">WINNI<span>TAN</span></h1>
+    <p class="hero-subtitle">Marketing Executive & Creative Designer</p>
+    <hr class="hero-divider"/>
+    <div class="hero-credits">
+      <div class="hero-credit"><span class="hc-num">3+</span><span class="hc-label">Years in Industry</span></div>
+      <div class="hero-credit"><span class="hc-num">10+</span><span class="hc-label">Major Travel Fairs</span></div>
+      <div class="hero-credit"><span class="hc-num">30+</span><span class="hc-label">Roadshow Experiences</span></div>
+      <div class="hero-credit"><span class="hc-num">4</span><span class="hc-label">Cruise Lines</span></div>
+    </div>
+    <div class="hero-bottom-row">
+      <div class="hero-side">
+        <span class="hero-side-tag">Self-Taught Designer</span>
+        <p class="hero-bio-side">Business grad who mastered <strong>Illustrator, Photoshop & video</strong> on her own.</p>
+        <button class="hero-btn" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">See My Work</button>
+      </div>
+      <div class="hero-photo-wrap">
+        <div class="hero-photo">
+          <!-- Replace photo.jpg with your actual photo file -->
+          <img src="photo.jpg" alt="Winni Tan" onerror="this.style.display='none'"/>
+          <span class="hero-photo-i">WT</span>
+          <span class="hero-photo-h">Your Photo Here</span>
+        </div>
+      </div>
+      <div class="hero-side-right">
+        <span class="hero-side-tag">NATAS 2023–2026</span>
+        <span class="hero-side-tag">Singapore Airlines</span>
+        <span class="hero-side-tag">Disney Cruise Line</span>
+        <span class="hero-side-tag">Royal Caribbean</span>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section class="about-band" id="about">
+  <div class="reveal-left">
+    <div style="display:flex;align-items:baseline;gap:.6rem;margin-bottom:.5rem;">
+      <span class="ab-sec-num">01</span>
+      <p class="ab-sec-label">About Me</p>
+    </div>
+    <h2 class="ab-title">Business Brain.<br>Creative Soul.</h2>
+    <p class="ab-bio">
+      I studied business — but somewhere along the way, I fell in love with making things. I taught myself <strong>Illustrator, Photoshop and video editing</strong> from scratch, because I couldn't wait for someone else to bring my ideas to life.<br><br>
+      Now, 3+ years in, I work where strategy meets design — leading campaigns, executing events, and crafting visuals that go from screen to real life. From NATAS Travel Fair to Singapore Airlines, I make sure every detail lands exactly right.
+    </p>
+    <div class="ab-ctas">
+      <button class="ab-btn1" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">View My Work</button>
+      <button class="ab-btn2" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get In Touch</button>
+    </div>
+  </div>
+  <div class="reveal-right">
+    <div class="ab-right">
+      <div class="ab-skill"><span class="ab-skill-name">Adobe Illustrator</span><span class="ab-skill-tag">Self-Taught</span></div>
+      <div class="ab-skill"><span class="ab-skill-name">Adobe Photoshop</span><span class="ab-skill-tag">Self-Taught</span></div>
+      <div class="ab-skill gold"><span class="ab-skill-name">Video Editing</span><span class="ab-skill-tag">Self-Taught</span></div>
+      <div class="ab-skill sage"><span class="ab-skill-name">Event Design & Execution</span><span class="ab-skill-tag">3+ Years</span></div>
+      <div class="ab-skill sage"><span class="ab-skill-name">Marketing & Campaigns</span><span class="ab-skill-tag">Strategy → Reality</span></div>
+      <div class="ab-skill gold"><span class="ab-skill-name">Brand Storytelling</span><span class="ab-skill-tag">Travel & Lifestyle</span></div>
+    </div>
+  </div>
+</section>
+
+<!-- EVENTS -->
+<section class="events-section" id="events">
+  <div class="sec-header reveal">
+    <div class="sec-num-title">
+      <span class="sec-num">02</span>
+      <h2 class="sec-title">Event Experience</h2>
+    </div>
+    <span class="sec-sub">Live Activations & Fairs</span>
+  </div>
+  <div class="events-grid reveal">
+    <div class="ev-card">
+      <div class="ev-years"><span class="ev-yr">2023</span><span class="ev-yr">2024</span><span class="ev-yr">2025</span><span class="ev-yr">2026</span></div>
+      <div class="ev-name">NATAS Travel Fair</div>
+      <div class="ev-type">Annual · Singapore Expo · Travel Exhibition</div>
+    </div>
+    <div class="ev-card">
+      <div class="ev-years"><span class="ev-yr">2023</span><span class="ev-yr">2024</span><span class="ev-yr">2025</span></div>
+      <div class="ev-name">NATAS Holiday Travel Fair</div>
+      <div class="ev-type">Seasonal · Travel Exhibition</div>
+    </div>
+    <div class="ev-card">
+      <div class="ev-years"><span class="ev-yr">2024</span><span class="ev-yr">2025</span></div>
+      <div class="ev-name">Time to Fly Travel Fair</div>
+      <div class="ev-type">By Singapore Airlines · Brand Activation</div>
+    </div>
+    <div class="ev-card ev-card-wide">
+      <div class="ev-years"><span class="ev-yr">30+</span></div>
+      <div class="ev-name">Roadshow Experiences — Cruise Lines & Tourism Boards</div>
+      <div class="ev-type">Disney Cruise Line · Star Dream Cruises · Royal Caribbean · Tourism Board Travel Roadshows</div>
+    </div>
+  </div>
+  <div class="roadshow-grid reveal">
+    <div class="rs-card"><div class="rs-name">Disney Cruise Line</div><div class="rs-type">Cruise Roadshow</div></div>
+    <div class="rs-card"><div class="rs-name">Star Dream Cruises</div><div class="rs-type">Cruise Roadshow</div></div>
+    <div class="rs-card"><div class="rs-name">Royal Caribbean</div><div class="rs-type">Cruise Roadshow</div></div>
+    <div class="rs-card"><div class="rs-name">Tourism Board</div><div class="rs-type">Travel Roadshow</div></div>
+  </div>
+</section>
+
+<!-- PORTFOLIO -->
+<section class="portfolio-section" id="portfolio">
+  <div class="sec-header reveal">
+    <div class="sec-num-title">
+      <span class="sec-num">03</span>
+      <h2 class="sec-title" style="color:var(--ink);">Design Portfolio</h2>
+    </div>
+    <span class="sec-sub" style="color:var(--olive-mid);">Selected Works</span>
+  </div>
+  <p class="port-note reveal">
+    ✦ Replace the coloured blocks below with your real artwork — see the instructions in the HTML comments.
+  </p>
+  <div class="port-grid reveal">
+    <!-- To add your image: replace background colour with your image file
+         Example: <img src="work1.jpg" class="port-img" alt="Brand Identity"/> -->
+    <div class="port-item p1">
+      <div class="port-placeholder"><span>BRANDING</span></div>
+      <div class="port-hover"><span>View Project →</span></div>
+      <span class="port-label">Brand Identity</span>
+    </div>
+    <div class="port-item p2">
+      <div class="port-placeholder"><span>CAMPAIGN</span></div>
+      <div class="port-hover"><span>View Project →</span></div>
+      <span class="port-label">Campaign Design</span>
+    </div>
+    <div class="port-item p3">
+      <div class="port-placeholder"><span>PRINT</span></div>
+      <div class="port-hover"><span>View Project →</span></div>
+      <span class="port-label">Print Design</span>
+    </div>
+    <div class="port-item p4">
+      <div class="port-placeholder"><span>EVENT</span></div>
+      <div class="port-hover"><span>View Project →</span></div>
+      <span class="port-label">Event Visuals</span>
+    </div>
+    <div class="port-item p5">
+      <div class="port-placeholder"><span>DIGITAL</span></div>
+      <div class="port-hover"><span>View Project →</span></div>
+      <span class="port-label">Digital Campaign</span>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACT -->
+<section class="contact-section" id="contact">
+  <div class="contact-bg">HELLO</div>
+  <div class="contact-grid">
+    <div class="reveal-left">
+      <p class="contact-sec-label">04 — Get In Touch</p>
+      <h2 class="contact-headline">Let's Make<br>Something <em>Real.</em></h2>
+      <p class="contact-intro">Open to brand campaigns, event creative direction, and design collaborations. If you've got a bold idea, I'm already interested.</p>
+      <div class="socials">
+        <!-- Replace # with your actual profile links -->
+        <a class="social" href="#" target="_blank">Instagram</a>
+        <a class="social" href="#" target="_blank">LinkedIn</a>
+        <a class="social" href="#" target="_blank">Behance</a>
+        <a class="social" href="mailto:your@email.com">Email</a>
+      </div>
+    </div>
+    <div class="cf reveal-right">
+      <input type="text" placeholder="Your Name"/>
+      <input type="email" placeholder="Your Email"/>
+      <input type="text" placeholder="Subject"/>
+      <textarea rows="4" placeholder="Tell me about your project..."></textarea>
+      <button class="cf-btn">Send It →</button>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <span class="ft">© 2026 Winni Tan</span>
+  <div class="ft-links">
+    <a class="ft-link" href="#" target="_blank">Instagram</a>
+    <a class="ft-link" href="#" target="_blank">LinkedIn</a>
+    <a class="ft-link" href="#" target="_blank">Behance</a>
+  </div>
+  <span class="ft">Marketing Executive & Designer · Singapore</span>
+</footer>
+
+<script>
+  // Scroll reveal
+  const revealEls = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+  const observer = new IntersectionObserver((entries)=>{
+    entries.forEach(e=>{
+      if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}
+    });
+  },{threshold:0.12});
+  revealEls.forEach(el=>observer.observe(el));
+
+  // Back to top button
+  const backTop = document.getElementById('backTop');
+  window.addEventListener('scroll',()=>{
+    backTop.classList.toggle('show', window.scrollY > 400);
+  });
+
+  // Nav active highlight on scroll
+  const sections = document.querySelectorAll('section[id]');
+  const navLinks = document.querySelectorAll('.nav-links a');
+  window.addEventListener('scroll',()=>{
+    let current = '';
+    sections.forEach(s=>{
+      if(window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
+    });
+    navLinks.forEach(a=>{
+      a.style.opacity = a.getAttribute('href')==='#'+current ? '1' : '0.7';
+    });
+  });
+</script>
+</body>
+</html>
