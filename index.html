@@ -3,7 +3,7 @@
 <head>
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
-<title>Winni Tan — Senior Marketing Executive & Creative Designer</title>
+<title>Winni Tan — Marketing Executive & Creative Designer</title>
 <link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo+Black&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet"/>
 <style>
   *{box-sizing:border-box;margin:0;padding:0;}
@@ -198,6 +198,42 @@
     .contact-grid{grid-template-columns:1fr;gap:2.5rem;}
     footer{flex-direction:column;gap:.8rem;text-align:center;padding:1.2rem;}
   }
+
+  /* ── PORTFOLIO TABS ── */
+  .port-tabs{display:flex;gap:.5rem;margin-bottom:2rem;border-bottom:2px solid rgba(26,18,8,.1);padding-bottom:0;}
+  .port-tab{font-family:'Archivo Black',sans-serif;font-size:.75rem;letter-spacing:.08em;padding:.7rem 1.5rem;background:transparent;border:none;border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer;color:rgba(26,18,8,.45);transition:all .2s;}
+  .port-tab:hover{color:var(--ink);}
+  .port-tab.active{color:var(--rust);border-bottom-color:var(--rust);}
+  .gallery-section-label{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--olive-mid);margin-bottom:1rem;padding-left:.2rem;}
+  .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;}
+  .gal-item{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer;background:var(--olive-mid);}
+  .gal-item.gal-placeholder{background:linear-gradient(135deg,var(--olive-mid) 0%,var(--sage) 100%);}
+  .gal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease;}
+  .gal-item:hover img{transform:scale(1.05);}
+  .gal-label{position:absolute;bottom:0;left:0;right:0;background:rgba(26,18,8,.55);color:var(--cream);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:.4rem .7rem;}
+  .gal-overlay{position:absolute;inset:0;background:rgba(184,74,30,.85);opacity:0;transition:opacity .25s;display:flex;align-items:center;justify-content:center;}
+  .gal-overlay span{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--cream);letter-spacing:.1em;}
+  .gal-item:hover .gal-overlay{opacity:1;}
+
+  /* ── LIGHTBOX ── */
+  .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:999;align-items:center;justify-content:center;}
+  .lightbox.open{display:flex;}
+  .lb-inner{position:relative;max-width:88vw;max-height:88vh;text-align:center;}
+  .lb-inner img{max-width:100%;max-height:82vh;object-fit:contain;display:block;margin:0 auto;}
+  #lb-caption{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(242,232,208,.5);margin-top:.7rem;}
+  .lb-close{position:fixed;top:1.5rem;right:1.5rem;background:var(--rust);color:var(--cream);border:none;font-size:1.2rem;width:2.4rem;height:2.4rem;cursor:pointer;z-index:1000;display:flex;align-items:center;justify-content:center;}
+  .lb-prev,.lb-next{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);color:var(--cream);border:none;font-size:1.8rem;padding:.5rem 1rem;cursor:pointer;z-index:1000;transition:background .2s;}
+  .lb-prev{left:1rem;}
+  .lb-next{right:1rem;}
+  .lb-prev:hover,.lb-next:hover{background:var(--rust);}
+
+  @media(max-width:768px){
+    .gal-grid{grid-template-columns:repeat(2,1fr);}
+    .port-tabs{gap:.2rem;}
+    .port-tab{font-size:.65rem;padding:.6rem .9rem;}
+    .lb-prev{left:.3rem;}
+    .lb-next{right:.3rem;}
+  }
 </style>
 </head>
 <body>
@@ -236,8 +272,8 @@
     </div>
     <div class="hero-bottom-row">
       <div class="hero-side">
-        <span class="hero-side-tag">Designer &amp; Marketer</span>
-        <p class="hero-bio-side">Business grad fluent in <strong>Illustrator, Photoshop & video</strong> — strategy and design in one.</p>
+        <span class="hero-side-tag">Self-Taught Designer</span>
+        <p class="hero-bio-side">Business grad who mastered <strong>Illustrator, Photoshop & video</strong> on her own.</p>
         <button class="hero-btn" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">See My Work</button>
       </div>
       <div class="hero-photo-wrap">
@@ -267,8 +303,8 @@
     </div>
     <h2 class="ab-title">Business Brain.<br>Creative Soul.</h2>
     <p class="ab-bio">
-      I'm a marketing professional who also speaks design. Fluent in <strong>Illustrator, Photoshop and video editing</strong>, I bridge the gap between strategy and execution — so campaigns don't just get planned, they get made well.<br><br>
-      3+ years at Nam Ho Travel has put me on the ground at NATAS, Singapore Airlines' Time to Fly, and 30+ roadshows. I handle everything from funding proposals to booth visuals — and I take ownership at every step.
+      I studied business — but somewhere along the way, I fell in love with making things. I taught myself <strong>Illustrator, Photoshop and video editing</strong> from scratch, because I couldn't wait for someone else to bring my ideas to life.<br><br>
+      Now, 3+ years in, I work where strategy meets design — leading campaigns, executing events, and crafting visuals that go from screen to real life. From NATAS Travel Fair to Singapore Airlines, I make sure every detail lands exactly right.
     </p>
     <div class="ab-ctas">
       <button class="ab-btn1" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">View My Work</button>
@@ -277,9 +313,9 @@
   </div>
   <div class="reveal-right">
     <div class="ab-right">
-      <div class="ab-skill"><span class="ab-skill-name">Adobe Illustrator</span><span class="ab-skill-tag">Campaign Collateral</span></div>
-      <div class="ab-skill"><span class="ab-skill-name">Adobe Photoshop</span><span class="ab-skill-tag">Visual Design</span></div>
-      <div class="ab-skill gold"><span class="ab-skill-name">Video Editing</span><span class="ab-skill-tag">Social & Events</span></div>
+      <div class="ab-skill"><span class="ab-skill-name">Adobe Illustrator</span><span class="ab-skill-tag">Self-Taught</span></div>
+      <div class="ab-skill"><span class="ab-skill-name">Adobe Photoshop</span><span class="ab-skill-tag">Self-Taught</span></div>
+      <div class="ab-skill gold"><span class="ab-skill-name">Video Editing</span><span class="ab-skill-tag">Self-Taught</span></div>
       <div class="ab-skill sage"><span class="ab-skill-name">Event Design & Execution</span><span class="ab-skill-tag">3+ Years</span></div>
       <div class="ab-skill sage"><span class="ab-skill-name">Marketing & Campaigns</span><span class="ab-skill-tag">Strategy → Reality</span></div>
       <div class="ab-skill gold"><span class="ab-skill-name">Brand Storytelling</span><span class="ab-skill-tag">Travel & Lifestyle</span></div>
@@ -335,36 +371,196 @@
     </div>
     <span class="sec-sub" style="color:var(--olive-mid);">Selected Works</span>
   </div>
-  <p class="port-note reveal">
-    ✦ Replace the coloured blocks below with your real artwork — see the instructions in the HTML comments.
-  </p>
-  <div class="port-grid reveal">
-    <!-- To add your image: replace background colour with your image file
-         Example: <img src="work1.jpg" class="port-img" alt="Brand Identity"/> -->
-    <div class="port-item p1">
-      <div class="port-placeholder"><span>BRANDING</span></div>
-      <div class="port-hover"><span>View Project →</span></div>
-      <span class="port-label">Brand Identity</span>
+
+  <!-- TABS -->
+  <div class="port-tabs reveal">
+    <button class="port-tab active" onclick="switchTab('events-tab', this)">🎪 Events</button>
+    <button class="port-tab" onclick="switchTab('print-tab', this)">🎨 Print Design</button>
+    <button class="port-tab" onclick="switchTab('digital-tab', this)">📱 Digital</button>
+  </div>
+
+  <!-- TAB: EVENTS -->
+  <div class="tab-panel" id="events-tab">
+    <div class="gallery-section-label">NATAS Travel Fair</div>
+    <div class="gal-grid">
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/NATAS2023_Feb.JPG" alt="NATAS Travel Feb 2023" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">NATAS Travel Feb 2023</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/NATAS223_Aug.jpeg" alt="NATAS Holiday Aug 2023" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">NATAS Holiday Aug 2023</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/NATAS2024_Feb1.jpg" alt="NATAS Travel Feb 2024" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">NATAS Travel Feb 2024</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/NATAS2024_Aug.jpg" alt="NATAS Holiday Aug 2024" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">NATAS Holiday Aug 2024</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/NATAS2025_March.jpeg" alt="NATAS Travel Mar 2025" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">NATAS Travel Mar 2025</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/NATAS2025_Aug1.jpeg" alt="NATAS Holiday Aug 2025" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">NATAS Holiday Aug 2025</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
     </div>
-    <div class="port-item p2">
-      <div class="port-placeholder"><span>CAMPAIGN</span></div>
-      <div class="port-hover"><span>View Project →</span></div>
-      <span class="port-label">Campaign Design</span>
+
+    <div class="gallery-section-label" style="margin-top:2rem;">Cruise Roadshows</div>
+    <div class="gal-grid">
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/CruiseRoadshow_RCI.JPG" alt="Royal Caribbean Roadshow" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">Cruise Roadshow</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/CruiseRoadshow_RCI_1.JPG" alt="Royal Caribbean Roadshow" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">Royal Caribbean</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/CruiseRoadshow_RCI_2.JPG" alt="RCI Roadshow Setup" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">Cruise Setup</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/TimeToFly_2023.jpg" alt="SIA Time to Fly 2023" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">SIA Time to Fly</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/TravelFair_KoreaFair2025.jpeg" alt="Korea Travel Fair 2025" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">Korea Travel Fair 2025</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/TravelFair_JapanFair2023.jpg" alt="Japan Travel Fair 2023" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">Japan Travel Fair 2023</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
     </div>
-    <div class="port-item p3">
-      <div class="port-placeholder"><span>PRINT</span></div>
-      <div class="port-hover"><span>View Project →</span></div>
-      <span class="port-label">Print Design</span>
+  </div>
+
+  <!-- TAB: PRINT DESIGN -->
+  <div class="tab-panel" id="print-tab" style="display:none;">
+    <div class="gallery-section-label">Flyers</div>
+    <div class="gal-grid">
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/Lightbox_1.jpeg" alt="Cruise Fly Flyer" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">Royal Caribbean Cruise</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/TravelFair_ChinaFair2024.jpg" alt="China Travel Fair 2024" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">China Travel Fair</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/Flyer_Taiwan.jpeg" alt="Taiwan Flyer" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">Taiwan Tour</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/Flyer_Korea.jpeg" alt="Korea Flyer" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">Korea Spring</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/Banner_Shandong.JPG" alt="Shandong Banner" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">Shandong Flora Tour</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/Flyer_Taiwan1.jpeg" alt="Taiwan Tour Flyer" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">Taiwan Tour</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
     </div>
-    <div class="port-item p4">
-      <div class="port-placeholder"><span>EVENT</span></div>
-      <div class="port-hover"><span>View Project →</span></div>
-      <span class="port-label">Event Visuals</span>
+
+    <div class="gallery-section-label" style="margin-top:2rem;">Pull-up Banners</div>
+    <div class="gal-grid">
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/Banner_HongKong1.jpeg" alt="Hong Kong Banner" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">Hong Kong Banner</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/Banner_HongKong_Korea.jpg" alt="Hong Kong Banner" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">HK & Korea Banner</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/TravelFair_MacauFair2024.jpeg" alt="Macao Banner" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">Macau Fair 2024</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/Banner_RCI_Flycruise.jpeg" alt="Royal Caribbean Banner" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">Royal Caribbean Cruise-Fly</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/TravelFair_TaiwanFair.jpeg" alt="Korea Spring Banner" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">Taiwan Fair</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/TravelFair_TravelMalaysia2023.jpeg" alt="Malaysia Travel Banner" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">Malaysia Travel</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
     </div>
-    <div class="port-item p5">
-      <div class="port-placeholder"><span>DIGITAL</span></div>
-      <div class="port-hover"><span>View Project →</span></div>
-      <span class="port-label">Digital Campaign</span>
+  </div>
+
+  <!-- TAB: DIGITAL -->
+  <div class="tab-panel" id="digital-tab" style="display:none;">
+    <div class="gallery-section-label">Social Media Posts</div>
+    <div class="gal-grid">
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/Digital_Posting_Shandong.jpeg" alt="Shandong Digital Posting" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">Shandong Flora Tour</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/Digital_Posting_Taiwan.jpeg" alt="Taiwan Digital Posting" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">Taiwan Postcard Post</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/Digital_Posting_Macau.jpg" alt="Macau Digital Posting" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">Macau Digital Post</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/Digital_Posting_RCI.jpeg" alt="Royal Caribbean Digital Posting" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">Royal Caribbean</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+      <div class="gal-item" onclick="openLightbox(this)">
+        <img src="images/Digital_Posting_InhouseFair.jpeg" alt="In-House Fair Digital Posting" onerror="this.parentElement.classList.add('gal-placeholder')"/>
+        <div class="gal-label">In-House Fair Post</div>
+        <div class="gal-overlay"><span>View ↗</span></div>
+      </div>
+    </div>
+  </div>
+
+  <!-- LIGHTBOX -->
+  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
+    <button class="lb-close" onclick="closeLightbox()">✕</button>
+    <button class="lb-prev" onclick="changeImage(-1)">&#8592;</button>
+    <button class="lb-next" onclick="changeImage(1)">&#8594;</button>
+    <div class="lb-inner">
+      <img id="lb-img" src="" alt=""/>
+      <p id="lb-caption"></p>
     </div>
   </div>
 </section>
@@ -434,6 +630,62 @@
       a.style.opacity = a.getAttribute('href')==='#'+current ? '1' : '0.7';
     });
   });
+
+  // Portfolio tabs
+  function switchTab(tabId, btn) {
+    document.querySelectorAll('.tab-panel').forEach(p => p.style.display = 'none');
+    document.querySelectorAll('.port-tab').forEach(b => b.classList.remove('active'));
+    document.getElementById(tabId).style.display = 'block';
+    btn.classList.add('active');
+  }
+
+  // Lightbox
+  let currentImages = [];
+  let currentIndex = 0;
+
+  function openLightbox(item) {
+    const img = item.querySelector('img');
+    if (!img) return;
+    const panel = item.closest('.tab-panel');
+    const allItems = panel.querySelectorAll('.gal-item img');
+    currentImages = Array.from(allItems).map(i => ({src: i.src, alt: i.alt}));
+    currentIndex = Array.from(allItems).indexOf(img);
+    showImage(currentIndex);
+    document.getElementById('lightbox').classList.add('open');
+    document.body.style.overflow = 'hidden';
+  }
+
+  function showImage(idx) {
+    const lb = document.getElementById('lb-img');
+    const cap = document.getElementById('lb-caption');
+    lb.src = currentImages[idx].src;
+    cap.textContent = currentImages[idx].alt;
+    currentIndex = idx;
+  }
+
+  function changeImage(dir) {
+    let next = currentIndex + dir;
+    if (next < 0) next = currentImages.length - 1;
+    if (next >= currentImages.length) next = 0;
+    showImage(next);
+    event.stopPropagation();
+  }
+
+  function closeLightbox(e) {
+    if (!e || e.target === document.getElementById('lightbox') || e.target.classList.contains('lb-close')) {
+      document.getElementById('lightbox').classList.remove('open');
+      document.body.style.overflow = '';
+    }
+  }
+
+  document.addEventListener('keydown', function(e) {
+    const lb = document.getElementById('lightbox');
+    if (!lb.classList.contains('open')) return;
+    if (e.key === 'ArrowRight') changeImage(1);
+    if (e.key === 'ArrowLeft') changeImage(-1);
+    if (e.key === 'Escape') closeLightbox({target: lb});
+  });
+
 </script>
 </body>
 </html>
