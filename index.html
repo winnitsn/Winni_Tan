@@ -5,266 +5,234 @@
 <meta charset="UTF-8"/>
 <meta name="viewport" content="width=device-width, initial-scale=1.0"/>
 <title>Winni Tan — Marketing Executive & Creative Designer</title>
-<link href="https://fonts.googleapis.com/css2?family=Bebas+Neue&family=Archivo+Black&family=DM+Serif+Display:ital@0;1&family=Space+Grotesk:wght@300;400;500&display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;0,900;1,400;1,700&family=DM+Sans:wght@300;400;500&family=Syne:wght@400;700;800&display=swap" rel="stylesheet"/>
 <style>
-  *{box-sizing:border-box;margin:0;padding:0;}
-  :root{
-    --ink:#1a1208;
-    --cream:#f2e8d0;
-    --olive:#3a4a1a;
-    --olive-mid:#4a5a20;
-    --rust:#b84a1e;
-    --gold:#c9933a;
-    --sage:#7a8c42;
-    --warm:#e8dfc4;
-    --light:#faf6ee;
-  }
-  html{scroll-behavior:smooth;}
-  body{background:var(--ink);font-family:'Space Grotesk',sans-serif;color:var(--ink);overflow-x:hidden;}
+*{box-sizing:border-box;margin:0;padding:0;}
+:root{
+  --black:#F5F0E8;
+  --off-black:#EDE6D6;
+  --card:#E8DFC8;
+  --coral:#4A5C3F;
+  --pink:#7A8C6E;
+  --blush:#D4C9B0;
+  --white:#2C3320;
+  --muted:rgba(44,51,32,.5);
+  --border:rgba(44,51,32,.1);
+}
+html{scroll-behavior:smooth;}
+body{background:var(--black);color:var(--white);font-family:'DM Sans',sans-serif;color:var(--white);overflow-x:hidden;cursor:none;}
 
-  /* ── SCROLL ANIMATIONS ── */
-  .reveal{opacity:0;transform:translateY(28px);transition:opacity .7s ease,transform .7s ease;}
-  .reveal.visible{opacity:1;transform:translateY(0);}
-  .reveal-left{opacity:0;transform:translateX(-28px);transition:opacity .7s ease,transform .7s ease;}
-  .reveal-left.visible{opacity:1;transform:translateX(0);}
-  .reveal-right{opacity:0;transform:translateX(28px);transition:opacity .7s ease,transform .7s ease;}
-  .reveal-right.visible{opacity:1;transform:translateX(0);}
+/* ── CURSOR ── */
+.cursor{width:8px;height:8px;background:#4A5C3F;border-radius:50%;position:fixed;pointer-events:none;z-index:9999;transition:transform .15s ease;mix-blend-mode:normal;}
+.cursor-ring{width:36px;height:36px;border:1px solid rgba(74,92,63,.35);border-radius:50%;position:fixed;pointer-events:none;z-index:9998;transition:all .1s ease;transform:translate(-14px,-14px);}
+body:hover .cursor{opacity:1;}
 
-  /* ── NAV ── */
-  nav{background:var(--ink);padding:1rem 3rem;display:flex;justify-content:space-between;align-items:center;border-bottom:1px solid rgba(255,255,255,.07);position:sticky;top:0;z-index:200;}
-  .nav-logo{font-family:'Bebas Neue',sans-serif;font-size:1.7rem;letter-spacing:.12em;color:var(--cream);}
-  .nav-links{display:flex;gap:2.5rem;}
-  .nav-links a{font-size:.65rem;letter-spacing:.22em;text-transform:uppercase;color:var(--gold);text-decoration:none;opacity:.7;cursor:pointer;transition:opacity .2s;}
-  .nav-links a:hover{opacity:1;}
-  .nav-cta{background:var(--rust);color:var(--cream)!important;opacity:1!important;padding:.35rem 1.2rem;}
+/* ── NOISE TEXTURE ── */
+body::before{content:'';position:fixed;inset:0;background-image:url("data:image/svg+xml,%3Csvg viewBox='0 0 256 256' xmlns='http://www.w3.org/2000/svg'%3E%3Cfilter id='noise'%3E%3CfeTurbulence type='fractalNoise' baseFrequency='0.9' numOctaves='4' stitchTiles='stitch'/%3E%3C/filter%3E%3Crect width='100%25' height='100%25' filter='url(%23noise)' opacity='0.035'/%3E%3C/svg%3E");pointer-events:none;z-index:0;opacity:.25;}
 
-  /* ── HERO ── */
-  .hero{background:var(--olive);display:flex;flex-direction:column;}
-  .hero-top-bar{background:var(--ink);padding:.5rem 3rem;display:flex;justify-content:space-between;border-bottom:1px solid rgba(255,255,255,.05);}
-  .htb{font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:rgba(242,232,208,.28);}
-  .htb.hi{color:var(--gold);}
+/* ── NAV ── */
+nav{position:fixed;top:0;left:0;right:0;z-index:100;padding:1.4rem 3rem;display:flex;justify-content:space-between;align-items:center;background:rgba(245,240,232,.92);backdrop-filter:blur(12px);border-bottom:1px solid var(--border);}
+.nav-logo{font-family:'Syne',sans-serif;font-size:1.1rem;font-weight:800;letter-spacing:.06em;color:var(--white);}
+.nav-logo span{color:var(--coral);}
+.nav-links{display:flex;gap:2.5rem;align-items:center;}
+.nav-links a{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
+.nav-links a:hover{color:var(--white);}
+.nav-cta{background:var(--coral)!important;color:var(--white)!important;padding:.4rem 1.2rem!important;letter-spacing:.12em!important;opacity:1!important;}
+.nav-cta:hover{background:var(--pink)!important;color:#F5F0E8!important;}
 
-  .hero-center{background:var(--olive);padding:2.8rem 3rem 0;text-align:center;position:relative;border-bottom:3px solid var(--gold);}
-  .hero-presents{font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(242,232,208,.32);margin-bottom:.35rem;}
-  .hero-name{font-family:'Bebas Neue',sans-serif;font-size:clamp(5.5rem,14vw,11rem);line-height:.82;color:var(--cream);animation:fadeDown .9s ease forwards;}
-  .hero-name span{color:var(--gold);display:block;}
-  @keyframes fadeDown{from{opacity:0;transform:translateY(-20px)}to{opacity:1;transform:translateY(0)}}
-  .hero-subtitle{font-family:'DM Serif Display',serif;font-style:italic;font-size:1.05rem;color:rgba(242,232,208,.42);margin-top:.35rem;margin-bottom:1.6rem;}
-  .hero-divider{border:none;border-top:1px solid rgba(242,232,208,.1);margin-bottom:1.6rem;}
+/* ── HERO ── */
+.hero{min-height:100vh;display:grid;grid-template-columns:1fr 1fr;position:relative;overflow:hidden;padding-top:72px;align-items:center;}
+.hero-left{display:flex;flex-direction:column;justify-content:center;padding:5rem 3rem 5rem 3rem;position:relative;z-index:1;}
+.hero-eyebrow{font-size:.65rem;letter-spacing:.35em;text-transform:uppercase;color:var(--coral);margin-bottom:1.5rem;display:flex;align-items:center;gap:.6rem;}
+.hero-eyebrow::before{content:'';display:block;width:2rem;height:1px;background:#4A5C3F;}
+.hero-name{font-family:'Playfair Display',serif;font-size:clamp(4.5rem,9vw,8rem);line-height:.88;font-weight:900;color:var(--white);margin-bottom:1rem;}
+.hero-name em{font-style:italic;color:var(--coral);}
+.hero-sub{font-size:1rem;line-height:1.7;color:var(--muted);max-width:420px;margin-bottom:2.5rem;}
+.hero-sub strong{color:var(--pink);font-weight:400;}
+.hero-actions{display:flex;gap:.8rem;flex-wrap:wrap;margin-bottom:3rem;}
+.btn-primary{background:var(--coral);color:#F5F0E8;font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.85rem 2rem;border:none;cursor:none;text-decoration:none;display:inline-block;transition:all .25s;}
+.btn-primary:hover{background:var(--pink);color:#F5F0E8;transform:translateY(-2px);}
+.btn-ghost{background:transparent;color:var(--white);font-family:'Syne',sans-serif;font-size:.75rem;font-weight:700;letter-spacing:.15em;text-transform:uppercase;padding:.85rem 2rem;border:1px solid rgba(248,244,242,.2);cursor:none;text-decoration:none;display:inline-block;transition:all .25s;}
+.btn-ghost:hover{border-color:var(--coral);color:var(--coral);}
+.hero-stats{display:grid;grid-template-columns:repeat(4,1fr);gap:.5rem;padding-top:2rem;border-top:1px solid var(--border);}
+.h-stat-num{font-family:'Playfair Display',serif;font-size:2rem;font-weight:700;color:var(--coral);display:block;line-height:1;}
+.h-stat-label{font-size:.6rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);display:block;margin-top:.2rem;}
 
-  .hero-credits{display:flex;justify-content:center;gap:4rem;margin-bottom:2rem;}
-  .hero-credit{text-align:center;}
-  .hc-num{font-family:'Bebas Neue',sans-serif;font-size:2.4rem;color:var(--rust);display:block;line-height:1;}
-  .hc-label{font-size:.55rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(242,232,208,.38);}
+.hero-right{display:flex;align-items:center;justify-content:center;padding:2rem;}
+.hero-img-wrap{position:relative;width:320px;flex-shrink:0;}
+.hero-arch-frame{width:320px;height:420px;border-radius:160px 160px 12px 12px;overflow:hidden;border:6px solid #D4C9B0;box-shadow:0 0 0 12px #EDE6D6, 0 0 0 14px #D4C9B0;position:relative;}
+.hero-arch-frame img{width:100%;height:100%;object-fit:cover;object-position:top center;display:block;}
+.hero-img-overlay{display:none;}
+.hero-img-tag{margin-top:1.2rem;text-align:center;font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:var(--muted);display:block;}
+.hero-scroll{position:absolute;bottom:2rem;left:3rem;display:flex;align-items:center;gap:.6rem;font-size:.58rem;letter-spacing:.22em;text-transform:uppercase;color:var(--muted);animation:float 2s ease-in-out infinite;z-index:2;}
+@keyframes float{0%,100%{transform:translateY(0)}50%{transform:translateY(-4px)}}
 
-  .hero-bottom-row{display:flex;gap:2rem;align-items:flex-end;justify-content:center;}
-  .hero-side{display:flex;flex-direction:column;gap:.55rem;padding-bottom:2.5rem;max-width:155px;}
-  .hero-side-tag{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(242,232,208,.32);border-left:2px solid var(--rust);padding-left:.6rem;line-height:1.4;}
-  .hero-bio-side{font-size:.72rem;line-height:1.68;color:rgba(242,232,208,.48);}
-  .hero-bio-side strong{color:var(--gold);font-weight:500;}
-  .hero-btn{background:var(--rust);color:var(--cream);font-family:'Bebas Neue',sans-serif;font-size:.95rem;letter-spacing:.15em;padding:.6rem 2rem;border:none;cursor:pointer;margin-top:.6rem;display:inline-block;transition:background .2s;}
-  .hero-btn:hover{background:var(--gold);color:var(--ink);}
+/* ── SECTION COMMON ── */
+.section{padding:6rem 3rem;position:relative;z-index:1;}
+.sec-eyebrow{font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:var(--coral);margin-bottom:.6rem;display:flex;align-items:center;gap:.6rem;}
+.sec-eyebrow::before{content:'';display:block;width:1.5rem;height:1px;background:#4A5C3F;}
+.sec-title{font-family:'Playfair Display',serif;font-size:clamp(2.2rem,4vw,3.5rem);font-weight:700;color:var(--white);line-height:1.05;margin-bottom:1rem;}
+.sec-title em{font-style:italic;color:var(--coral);}
 
-  .hero-photo-wrap{position:relative;}
-  .hero-photo{width:175px;aspect-ratio:2/3;background:linear-gradient(180deg,#5a7030 0%,#2e3a1f 100%);display:flex;align-items:flex-end;justify-content:center;padding-bottom:.6rem;border-top:3px solid var(--gold);position:relative;flex-shrink:0;overflow:hidden;}
-  .hero-photo img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:top;}
-  .hero-photo-i{font-family:'Bebas Neue',sans-serif;font-size:5rem;color:rgba(255,255,255,.05);position:absolute;top:50%;transform:translateY(-50%);}
-  .hero-photo-h{font-size:.5rem;letter-spacing:.12em;text-transform:uppercase;color:rgba(255,255,255,.18);position:relative;z-index:1;}
+/* ── BRANDS ── */
+.brands-section{background:var(--off-black);padding:3rem;border-top:1px solid var(--border);border-bottom:1px solid var(--border);}
+.brands-label{font-size:.58rem;letter-spacing:.32em;text-transform:uppercase;color:var(--muted);text-align:center;margin-bottom:2rem;}
+.brands-marquee-wrap{overflow:hidden;position:relative;}
+.brands-marquee-wrap::before,.brands-marquee-wrap::after{content:'';position:absolute;top:0;bottom:0;width:80px;z-index:2;}
+.brands-marquee-wrap::before{left:0;background:linear-gradient(90deg,var(--off-black),transparent);}
+.brands-marquee-wrap::after{right:0;background:linear-gradient(-90deg,var(--off-black),transparent);}
+.brands-marquee{display:flex;gap:0;animation:marquee 28s linear infinite;width:max-content;}
+.brands-marquee:hover{animation-play-state:paused;}
+.brand-logo-item{padding:.5rem 2rem;border-right:1px solid var(--border);display:flex;align-items:center;justify-content:center;min-width:140px;height:56px;flex-shrink:0;}
+.brand-logo-item img{max-height:36px;max-width:110px;width:auto;object-fit:contain;filter:grayscale(100%) opacity(0.45);transition:filter .3s;}
+.brands-marquee:hover .brand-logo-item img{filter:grayscale(60%) opacity(0.7);}
+.brand-logo-fallback{display:none;font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;color:rgba(44,51,32,.3);letter-spacing:.08em;text-transform:uppercase;}
+@keyframes marquee{0%{transform:translateX(0)}100%{transform:translateX(-50%)}}
 
-  .hero-side-right{display:flex;flex-direction:column;gap:.55rem;padding-bottom:2.5rem;max-width:155px;align-items:flex-end;text-align:right;}
-  .hero-side-right .hero-side-tag{border-left:none;border-right:2px solid var(--gold);padding-left:0;padding-right:.6rem;}
+/* ── ABOUT ── */
+.about-section{background:var(--black);}
+.about-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:start;}
+.about-bio{font-size:.95rem;line-height:1.9;color:var(--muted);margin-bottom:1.8rem;}
+.about-bio strong{color:var(--pink);font-weight:400;}
+.skills-grid{display:flex;flex-direction:column;gap:.5rem;}
+.skill-row{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.1rem;border:1px solid var(--border);background:var(--card);transition:all .2s;}
+.skill-row:hover{border-color:rgba(232,97,74,.3);background:rgba(232,97,74,.04);transform:translateX(4px);}
+.skill-name{font-family:'Syne',sans-serif;font-size:.82rem;font-weight:700;color:var(--white);}
+.skill-tag{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--coral);}
 
-  /* ── ABOUT ── */
-  .about-band{background:var(--cream);padding:4rem 3rem;border-bottom:3px solid var(--ink);display:grid;grid-template-columns:1fr 1fr;gap:4rem;align-items:start;}
-  .ab-sec-label{font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:var(--rust);margin-bottom:.6rem;display:flex;align-items:center;gap:.5rem;}
-  .ab-sec-num{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:rgba(26,18,8,.07);line-height:1;}
-  .ab-title{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:var(--ink);line-height:.88;margin-bottom:1.3rem;}
-  .ab-bio{font-size:.85rem;line-height:1.82;color:var(--ink);opacity:.65;margin-bottom:1.6rem;}
-  .ab-bio strong{color:var(--rust);opacity:1;font-weight:600;}
-  .ab-ctas{display:flex;gap:.75rem;flex-wrap:wrap;}
-  .ab-btn1{background:var(--ink);color:var(--cream);font-family:'Archivo Black',sans-serif;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:.75rem 1.8rem;border:none;cursor:pointer;transition:background .2s;}
-  .ab-btn1:hover{background:var(--rust);}
-  .ab-btn2{background:transparent;color:var(--ink);font-family:'Archivo Black',sans-serif;font-size:.68rem;letter-spacing:.12em;text-transform:uppercase;padding:.75rem 1.8rem;border:2px solid var(--ink);cursor:pointer;transition:all .2s;}
-  .ab-btn2:hover{border-color:var(--rust);color:var(--rust);}
-  .ab-right{display:flex;flex-direction:column;gap:.7rem;}
-  .ab-skill{display:flex;align-items:center;justify-content:space-between;padding:.9rem 1.1rem;background:var(--light);border-left:3px solid var(--rust);transition:transform .2s;}
-  .ab-skill:hover{transform:translateX(4px);}
-  .ab-skill.gold{border-left-color:var(--gold);}
-  .ab-skill.sage{border-left-color:var(--sage);}
-  .ab-skill-name{font-family:'Archivo Black',sans-serif;font-size:.8rem;color:var(--ink);}
-  .ab-skill-tag{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:var(--rust);}
-  .ab-skill.gold .ab-skill-tag{color:var(--gold);}
-  .ab-skill.sage .ab-skill-tag{color:var(--sage);}
+/* ── EVENTS ── */
+.events-section{background:var(--off-black);}
+.events-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.6rem;margin-top:2.5rem;}
+.ev-card{background:var(--card);border:1px solid var(--border);padding:1.4rem;transition:all .2s;cursor:default;}
+.ev-card:hover{border-color:rgba(232,97,74,.3);background:rgba(232,97,74,.04);}
+.ev-card-wide{grid-column:span 2;}
+.ev-years{display:flex;gap:.3rem;flex-wrap:wrap;margin-bottom:.8rem;}
+.ev-yr{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;padding:.15rem .6rem;background:rgba(232,97,74,.15);color:var(--coral);border:1px solid rgba(232,97,74,.25);}
+.ev-name{font-family:'Playfair Display',serif;font-size:1.05rem;color:var(--white);margin-bottom:.3rem;}
+.ev-type{font-size:.62rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
+.roadshow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;margin-top:.6rem;}
+.rs-card{background:var(--card);border:1px solid var(--border);border-top:2px solid var(--coral);padding:.9rem 1rem;transition:all .2s;}
+.rs-card:hover{background:rgba(232,97,74,.05);}
+.rs-name{font-family:'Syne',sans-serif;font-size:.8rem;font-weight:700;color:var(--white);margin-bottom:.2rem;}
+.rs-type{font-size:.58rem;letter-spacing:.14em;text-transform:uppercase;color:var(--muted);}
 
-  /* ── EVENTS ── */
-  .events-section{background:var(--ink);padding:4rem 3rem;border-bottom:3px solid var(--rust);}
-  .sec-header{display:flex;justify-content:space-between;align-items:flex-end;margin-bottom:2rem;padding-bottom:1rem;border-bottom:1px solid rgba(255,255,255,.07);}
-  .sec-num-title{display:flex;align-items:baseline;gap:.8rem;}
-  .sec-num{font-family:'Bebas Neue',sans-serif;font-size:4.5rem;color:rgba(255,255,255,.04);line-height:1;}
-  .sec-title{font-family:'Bebas Neue',sans-serif;font-size:2.8rem;color:var(--cream);}
-  .events-section .sec-title{color:var(--cream);}
-  .sec-sub{font-size:.62rem;letter-spacing:.22em;text-transform:uppercase;color:var(--rust);}
+/* ── PORTFOLIO ── */
+.portfolio-section{background:var(--black);}
+.port-tabs{display:flex;gap:.4rem;margin-top:2.5rem;margin-bottom:2rem;border-bottom:1px solid var(--border);padding-bottom:0;}
+.port-tab{font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.1em;text-transform:uppercase;padding:.75rem 1.6rem;background:transparent;border:none;border-bottom:2px solid transparent;margin-bottom:-1px;cursor:none;color:var(--muted);transition:all .2s;}
+.port-tab:hover{color:#2C3320;}
+.port-tab.active{color:#4A5C3F;border-bottom-color:#4A5C3F;}
 
-  .events-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:.8rem;margin-bottom:.8rem;}
-  .ev-card{background:#22180e;border-bottom:3px solid var(--rust);padding:1.3rem 1.3rem 1.1rem;cursor:pointer;transition:background .2s,transform .2s;}
-  .ev-card:hover{background:#2e2010;transform:translateY(-2px);}
-  .ev-card:nth-child(2){border-bottom-color:var(--gold);}
-  .ev-card:nth-child(3){border-bottom-color:var(--sage);}
-  .ev-card-wide{grid-column:span 2;}
-  .ev-years{display:flex;flex-wrap:wrap;gap:.3rem;margin-bottom:.65rem;}
-  .ev-yr{font-family:'Bebas Neue',sans-serif;font-size:.8rem;letter-spacing:.1em;padding:.15rem .6rem;background:var(--rust);color:var(--cream);}
-  .ev-card:nth-child(2) .ev-yr{background:var(--gold);color:var(--ink);}
-  .ev-card:nth-child(3) .ev-yr{background:var(--sage);}
-  .ev-name{font-family:'Archivo Black',sans-serif;font-size:.95rem;color:var(--cream);line-height:1.3;margin-bottom:.4rem;}
-  .ev-type{font-size:.6rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(242,232,208,.32);}
+/* PROJECT GRID */
+.project-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:2px;background:var(--border);}
+.proj-card{background:var(--black);position:relative;overflow:hidden;cursor:none;aspect-ratio:4/3;}
+.proj-card img{width:100%;height:100%;object-fit:cover;transition:transform .5s ease,filter .4s ease;filter:brightness(.85);}
+.proj-card:hover img{transform:scale(1.06);filter:brightness(.75) sepia(.1);}
+.proj-overlay{position:absolute;inset:0;display:flex;flex-direction:column;justify-content:flex-end;padding:1.2rem;background:linear-gradient(transparent 20%,rgba(74,92,63,.92) 100%);opacity:0;transition:opacity .3s;}
+.proj-card:hover .proj-overlay{opacity:1;}
+.proj-cat{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:#D4C9B0;margin-bottom:.3rem;}
+.proj-name{font-family:'Playfair Display',serif;font-size:1rem;color:#F5F0E8;margin-bottom:.5rem;}
+.proj-pages{font-size:.62rem;color:rgba(245,240,232,.7);letter-spacing:.1em;}
+.proj-always{position:absolute;bottom:0;left:0;right:0;padding:.7rem 1rem;background:linear-gradient(transparent,rgba(74,92,63,.65));display:flex;align-items:flex-end;}
+.proj-always-name{font-family:'Syne',sans-serif;font-size:.72rem;font-weight:700;color:rgba(245,240,232,.9);letter-spacing:.06em;}
 
-  .roadshow-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.8rem;}
-  .rs-card{background:#22180e;padding:.95rem 1.1rem;border-top:2px solid var(--gold);transition:background .2s,transform .2s;}
-  .rs-card:hover{background:#2e2010;transform:translateY(-2px);}
-  .rs-name{font-family:'Archivo Black',sans-serif;font-size:.82rem;color:var(--cream);margin-bottom:.3rem;line-height:1.3;}
-  .rs-type{font-size:.58rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(242,232,208,.28);}
+/* PROJECT LIGHTBOX */
+.proj-lightbox{display:none;position:fixed;inset:0;background:rgba(245,240,232,.98);z-index:500;flex-direction:column;}
+.proj-lightbox.open{display:flex;}
+.plb-header{display:flex;justify-content:space-between;align-items:center;padding:1.2rem 2rem;border-bottom:1px solid var(--border);flex-shrink:0;background:rgba(245,240,232,.98);}
+.plb-title-wrap{display:flex;align-items:center;gap:1rem;}
+.plb-cat{font-size:.58rem;letter-spacing:.2em;text-transform:uppercase;color:var(--coral);}
+.plb-name{font-family:'Playfair Display',serif;font-size:1.2rem;color:var(--white);}
+.plb-counter{font-size:.72rem;color:var(--muted);letter-spacing:.1em;}
+.plb-close{background:none;border:1px solid var(--border);color:var(--white);font-size:1rem;width:2.4rem;height:2.4rem;cursor:none;display:flex;align-items:center;justify-content:center;transition:all .2s;}
+.plb-close:hover{background:var(--coral);border-color:var(--coral);}
+.plb-body{flex:1;display:flex;align-items:center;justify-content:center;position:relative;overflow:hidden;padding:1rem 4rem;}
+.plb-img-wrap{max-width:100%;max-height:100%;display:flex;align-items:center;justify-content:center;}
+.plb-img-wrap img{max-width:100%;max-height:calc(100vh - 160px);object-fit:contain;display:block;}
+.plb-nav{position:absolute;top:50%;transform:translateY(-50%);background:rgba(74,92,63,.12);border:1px solid var(--border);color:var(--white);font-size:1.2rem;width:3rem;height:3rem;cursor:none;display:flex;align-items:center;justify-content:center;transition:all .2s;border-radius:0;}
+.plb-nav:hover{background:var(--coral);border-color:var(--coral);}
+.plb-prev{left:1rem;}
+.plb-next{right:1rem;}
+.plb-footer{padding:.8rem 2rem;border-top:1px solid var(--border);display:flex;gap:.4rem;overflow-x:auto;flex-shrink:0;background:rgba(245,240,232,.98);}
+.plb-thumb{width:52px;height:52px;object-fit:cover;opacity:.4;cursor:none;transition:opacity .2s;flex-shrink:0;border:1px solid transparent;}
+.plb-thumb.active{opacity:1;border-color:var(--coral);}
+.plb-thumb:hover{opacity:.7;}
 
-  /* ── PORTFOLIO ── */
-  .portfolio-section{background:var(--warm);padding:4rem 3rem;border-bottom:3px solid var(--ink);}
-  .portfolio-section .sec-title{color:var(--ink);}
-  .portfolio-section .sec-num{color:rgba(26,18,8,.04);}
-  .portfolio-section .sec-sub{color:var(--olive-mid);}
-  .portfolio-section .sec-header{border-bottom-color:rgba(26,18,8,.08);}
-  .port-note{font-size:.72rem;color:rgba(26,18,8,.45);margin-bottom:1.5rem;font-style:italic;}
+/* ── CONTACT ── */
+.contact-section{background:var(--off-black);border-top:1px solid var(--border);}
+.contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;align-items:center;}
+.contact-headline{font-family:'Playfair Display',serif;font-size:clamp(2.5rem,5vw,4.5rem);line-height:.9;color:var(--white);margin-bottom:1.2rem;}
+.contact-headline em{font-style:italic;color:var(--coral);}
+.contact-intro{font-size:.9rem;line-height:1.78;color:var(--muted);margin-bottom:2rem;}
+.contact-btns{display:flex;flex-direction:column;gap:.8rem;}
+.contact-btn{display:flex;align-items:center;gap:1.2rem;background:var(--card);border:1px solid var(--border);padding:1.1rem 1.4rem;text-decoration:none;transition:all .2s;cursor:none;}
+.contact-btn:hover{border-color:rgba(232,97,74,.4);background:rgba(232,97,74,.06);transform:translateX(4px);}
+.cb-icon{font-family:'Syne',sans-serif;font-size:1rem;font-weight:800;color:var(--coral);width:2rem;text-align:center;flex-shrink:0;}
+.cb-text{display:flex;flex-direction:column;gap:.1rem;}
+.cb-label{font-family:'Syne',sans-serif;font-size:.78rem;font-weight:700;color:var(--white);letter-spacing:.04em;}
+.cb-sub{font-size:.68rem;color:var(--muted);}
+.contact-right{display:flex;flex-direction:column;gap:1.5rem;}
+.contact-quote{font-family:'Playfair Display',serif;font-size:1.5rem;font-style:italic;color:rgba(44,51,32,.25);line-height:1.5;}
+.contact-quote span{color:#4A5C3F;}
+.avail-badge{display:inline-flex;align-items:center;gap:.5rem;border:1px solid rgba(232,97,74,.3);padding:.5rem 1rem;font-size:.65rem;letter-spacing:.15em;text-transform:uppercase;color:var(--coral);}
+.avail-dot{width:.45rem;height:.45rem;border-radius:50%;background:#4A5C3F;animation:pulse 2s infinite;}
+@keyframes pulse{0%,100%{opacity:1}50%{opacity:.3}}
 
-  .port-grid{display:grid;grid-template-columns:repeat(12,1fr);gap:.8rem;}
-  .port-item{position:relative;overflow:hidden;cursor:pointer;display:flex;align-items:flex-end;padding:.9rem;transition:transform .2s;}
-  .port-item:hover{transform:scale(1.02);}
-  .port-item:hover .port-hover{opacity:1;}
-  .port-hover{position:absolute;inset:0;background:rgba(184,74,30,.9);opacity:0;transition:opacity .25s;display:flex;align-items:center;justify-content:center;}
-  .port-hover span{font-family:'Bebas Neue',sans-serif;font-size:1.3rem;color:var(--cream);letter-spacing:.1em;}
-  .p1{grid-column:span 5;aspect-ratio:4/5;background:var(--olive-mid);}
-  .p2{grid-column:span 4;aspect-ratio:4/5;background:var(--rust);}
-  .p3{grid-column:span 3;aspect-ratio:4/5;background:var(--gold);}
-  .p4{grid-column:span 7;aspect-ratio:16/9;background:#6b5a2e;}
-  .p5{grid-column:span 5;aspect-ratio:16/9;background:var(--sage);}
-  .port-img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;}
-  .port-label{font-family:'Bebas Neue',sans-serif;font-size:.72rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(0,0,0,.45);color:var(--cream);padding:.22rem .6rem;position:relative;z-index:1;}
-  .port-placeholder{position:absolute;inset:0;display:flex;align-items:center;justify-content:center;pointer-events:none;}
-  .port-placeholder span{font-family:'Bebas Neue',sans-serif;font-size:3rem;color:rgba(255,255,255,.06);}
+/* ── FOOTER ── */
+footer{background:var(--black);border-top:1px solid var(--border);padding:1.5rem 3rem;display:flex;justify-content:space-between;align-items:center;}
+.ft{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);}
+.ft-links{display:flex;gap:2rem;}
+.ft-link{font-size:.62rem;letter-spacing:.15em;text-transform:uppercase;color:var(--muted);text-decoration:none;transition:color .2s;}
+.ft-link:hover{color:var(--coral);}
 
-  /* ── CONTACT ── */
-  .contact-section{background:var(--rust);padding:4rem 3rem;position:relative;overflow:hidden;}
-  .contact-bg{position:absolute;right:-1rem;bottom:-3rem;font-family:'Bebas Neue',sans-serif;font-size:16rem;color:rgba(0,0,0,.07);line-height:1;pointer-events:none;white-space:nowrap;user-select:none;}
-  .contact-grid{display:grid;grid-template-columns:1fr 1fr;gap:5rem;position:relative;z-index:1;}
-  .contact-sec-label{font-size:.6rem;letter-spacing:.28em;text-transform:uppercase;color:rgba(242,232,208,.48);margin-bottom:.8rem;}
-  .contact-headline{font-family:'Bebas Neue',sans-serif;font-size:clamp(2.8rem,5vw,5rem);line-height:.88;color:var(--cream);margin-bottom:1.1rem;}
-  .contact-headline em{font-style:italic;font-family:'DM Serif Display',serif;color:rgba(242,232,208,.6);}
-  .contact-intro{font-size:.85rem;line-height:1.78;color:rgba(242,232,208,.68);margin-bottom:2rem;}
-  .socials{display:flex;gap:.6rem;flex-wrap:wrap;}
-  .social{font-family:'Archivo Black',sans-serif;font-size:.62rem;letter-spacing:.12em;text-transform:uppercase;background:rgba(242,232,208,.12);color:var(--cream);padding:.42rem 1.1rem;cursor:pointer;border:1px solid rgba(242,232,208,.18);text-decoration:none;transition:all .2s;}
-  .social:hover{background:var(--cream);color:var(--rust);}
-  .cf{display:flex;flex-direction:column;gap:.9rem;}
-  .cf input,.cf textarea{background:rgba(255,255,255,.1);border:none;border-bottom:1px solid rgba(242,232,208,.22);padding:.78rem 0;font-family:'Space Grotesk',sans-serif;font-size:.88rem;color:var(--cream);outline:none;resize:none;transition:border-color .2s;}
-  .cf input::placeholder,.cf textarea::placeholder{color:rgba(242,232,208,.33);}
-  .cf input:focus,.cf textarea:focus{border-bottom-color:var(--cream);}
-  .cf-btn{align-self:flex-start;background:var(--ink);color:var(--cream);font-family:'Bebas Neue',sans-serif;font-size:1.05rem;letter-spacing:.15em;padding:.68rem 2.2rem;border:none;cursor:pointer;transition:background .2s;}
-  .cf-btn:hover{background:var(--gold);color:var(--ink);}
+/* ── BACK TO TOP ── */
+.back-top{position:fixed;bottom:2rem;right:2rem;background:var(--coral);color:#F5F0E8;border:none;font-family:'Syne',sans-serif;font-size:.7rem;font-weight:700;letter-spacing:.1em;padding:.6rem 1rem;cursor:none;z-index:150;opacity:0;transform:translateY(10px);transition:all .3s;}
+.back-top.show{opacity:1;transform:translateY(0);}
+.back-top:hover{background:var(--pink);color:#F5F0E8;}
 
-  /* ── FOOTER ── */
-  footer{background:var(--ink);padding:1.3rem 3rem;display:flex;justify-content:space-between;align-items:center;border-top:2px solid var(--rust);}
-  .ft{font-family:'Bebas Neue',sans-serif;font-size:.82rem;letter-spacing:.15em;color:var(--cream);opacity:.28;}
-  .ft-links{display:flex;gap:1.8rem;}
-  .ft-link{font-size:.58rem;letter-spacing:.18em;text-transform:uppercase;color:var(--gold);opacity:.48;cursor:pointer;text-decoration:none;transition:opacity .2s;}
-  .ft-link:hover{opacity:1;}
+/* ── SCROLL REVEAL ── */
+.reveal{opacity:0;transform:translateY(24px);transition:opacity .7s ease,transform .7s ease;}
+.reveal.visible{opacity:1;transform:translateY(0);}
+.reveal-left{opacity:0;transform:translateX(-24px);transition:opacity .7s ease,transform .7s ease;}
+.reveal-left.visible{opacity:1;transform:translateX(0);}
+.reveal-right{opacity:0;transform:translateX(24px);transition:opacity .7s ease,transform .7s ease;}
+.reveal-right.visible{opacity:1;transform:translateX(0);}
 
-  /* ── BACK TO TOP ── */
-  .back-top{position:fixed;bottom:2rem;right:2rem;background:var(--rust);color:var(--cream);font-family:'Bebas Neue',sans-serif;font-size:.85rem;letter-spacing:.12em;padding:.5rem 1rem;cursor:pointer;border:none;z-index:150;opacity:0;transform:translateY(10px);transition:opacity .3s,transform .3s;}
-  .back-top.show{opacity:1;transform:translateY(0);}
-  .back-top:hover{background:var(--gold);color:var(--ink);}
-
-  /* ── RESPONSIVE ── */
-  @media(max-width:768px){
-    nav{padding:1rem 1.5rem;}
-    .nav-links{gap:1.2rem;}
-    .hero-center{padding:2rem 1.5rem 0;}
-    .hero-credits{gap:1.5rem;}
-    .hero-bottom-row{flex-direction:column;align-items:center;}
-    .hero-side,.hero-side-right{max-width:100%;text-align:center;align-items:center;padding-bottom:1rem;}
-    .hero-side .hero-side-tag{border-left:none;border-bottom:1px solid var(--rust);padding-left:0;padding-bottom:.3rem;}
-    .hero-side-right .hero-side-tag{border-right:none;border-bottom:1px solid var(--gold);}
-    .about-band{grid-template-columns:1fr;gap:2rem;padding:2.5rem 1.5rem;}
-    .events-section,.portfolio-section,.contact-section{padding:2.5rem 1.5rem;}
-    .events-grid{grid-template-columns:1fr;}
-    .ev-card-wide{grid-column:span 1;}
-    .roadshow-grid{grid-template-columns:repeat(2,1fr);}
-    .port-grid{grid-template-columns:repeat(6,1fr);}
-    .p1,.p2,.p3{grid-column:span 3;}
-    .p4,.p5{grid-column:span 6;}
-    .contact-grid{grid-template-columns:1fr;gap:2.5rem;}
-    footer{flex-direction:column;gap:.8rem;text-align:center;padding:1.2rem;}
-  }
-
-  /* ── PORTFOLIO TABS ── */
-  .port-tabs{display:flex;gap:.5rem;margin-bottom:2rem;border-bottom:2px solid rgba(26,18,8,.1);padding-bottom:0;}
-  .port-tab{font-family:'Archivo Black',sans-serif;font-size:.75rem;letter-spacing:.08em;padding:.7rem 1.5rem;background:transparent;border:none;border-bottom:3px solid transparent;margin-bottom:-2px;cursor:pointer;color:rgba(26,18,8,.45);transition:all .2s;}
-  .port-tab:hover{color:var(--ink);}
-  .port-tab.active{color:var(--rust);border-bottom-color:var(--rust);}
-  .gallery-section-label{font-size:.6rem;letter-spacing:.25em;text-transform:uppercase;color:var(--olive-mid);margin-bottom:1rem;padding-left:.2rem;}
-  .gal-grid{display:grid;grid-template-columns:repeat(3,1fr);gap:.8rem;}
-  .gal-item{position:relative;aspect-ratio:4/3;overflow:hidden;cursor:pointer;background:var(--olive-mid);}
-  .gal-item.gal-placeholder{background:linear-gradient(135deg,var(--olive-mid) 0%,var(--sage) 100%);}
-  .gal-item img{width:100%;height:100%;object-fit:cover;display:block;transition:transform .35s ease;}
-  .gal-item:hover img{transform:scale(1.05);}
-  .gal-label{position:absolute;bottom:0;left:0;right:0;background:rgba(26,18,8,.55);color:var(--cream);font-size:.65rem;letter-spacing:.1em;text-transform:uppercase;padding:.4rem .7rem;}
-  .gal-overlay{position:absolute;inset:0;background:rgba(184,74,30,.85);opacity:0;transition:opacity .25s;display:flex;align-items:center;justify-content:center;}
-  .gal-overlay span{font-family:'Bebas Neue',sans-serif;font-size:1.2rem;color:var(--cream);letter-spacing:.1em;}
-  .gal-item:hover .gal-overlay{opacity:1;}
-
-  /* ── LIGHTBOX ── */
-  .lightbox{display:none;position:fixed;inset:0;background:rgba(0,0,0,.92);z-index:999;align-items:center;justify-content:center;}
-  .lightbox.open{display:flex;}
-  .lb-inner{position:relative;max-width:88vw;max-height:88vh;text-align:center;}
-  .lb-inner img{max-width:100%;max-height:82vh;object-fit:contain;display:block;margin:0 auto;}
-  #lb-caption{font-size:.72rem;letter-spacing:.18em;text-transform:uppercase;color:rgba(242,232,208,.5);margin-top:.7rem;}
-  .lb-close{position:fixed;top:1.5rem;right:1.5rem;background:var(--rust);color:var(--cream);border:none;font-size:1.2rem;width:2.4rem;height:2.4rem;cursor:pointer;z-index:1000;display:flex;align-items:center;justify-content:center;}
-  .lb-prev,.lb-next{position:fixed;top:50%;transform:translateY(-50%);background:rgba(255,255,255,.1);color:var(--cream);border:none;font-size:1.8rem;padding:.5rem 1rem;cursor:pointer;z-index:1000;transition:background .2s;}
-  .lb-prev{left:1rem;}
-  .lb-next{right:1rem;}
-  .lb-prev:hover,.lb-next:hover{background:var(--rust);}
-
-  @media(max-width:768px){
-    .gal-grid{grid-template-columns:repeat(2,1fr);}
-    .port-tabs{gap:.2rem;}
-    .port-tab{font-size:.65rem;padding:.6rem .9rem;}
-    .lb-prev{left:.3rem;}
-    .lb-next{right:.3rem;}
-  }
-
-  /* ── CONTACT ACTION BUTTONS ── */
-  .cf-action-btn{display:flex;align-items:center;gap:1.2rem;background:rgba(242,232,208,.1);border:1px solid rgba(242,232,208,.18);padding:1rem 1.4rem;text-decoration:none;transition:all .2s;cursor:pointer;}
-  .cf-action-btn:hover{background:rgba(242,232,208,.18);transform:translateX(4px);}
-  .cf-btn-resume{background:rgba(201,147,58,.15);border-color:rgba(201,147,58,.35);}
-  .cf-btn-resume:hover{background:rgba(201,147,58,.25);}
-  .cf-btn-icon{font-family:'Bebas Neue',sans-serif;font-size:1.4rem;color:var(--cream);width:2.2rem;text-align:center;flex-shrink:0;line-height:1;}
-  .cf-btn-text{display:flex;flex-direction:column;gap:.15rem;}
-  .cf-btn-label{font-family:'Archivo Black',sans-serif;font-size:.82rem;letter-spacing:.08em;text-transform:uppercase;color:var(--cream);}
-  .cf-btn-sub{font-size:.7rem;color:rgba(242,232,208,.45);letter-spacing:.05em;}
-
-  /* ── BRANDS ── */
-  .brands-section{background:var(--ink);padding:3rem 3rem;border-bottom:1px solid rgba(255,255,255,.06);}
-  .brands-label{font-size:.6rem;letter-spacing:.32em;text-transform:uppercase;color:rgba(242,232,208,.28);text-align:center;margin-bottom:1.8rem;}
-  .brands-grid{display:grid;grid-template-columns:repeat(4,1fr);gap:.6rem;}
-  .brand-tile{background:rgba(255,255,255,.04);border:1px solid rgba(255,255,255,.07);padding:.85rem 1rem;display:flex;flex-direction:column;gap:.2rem;transition:all .2s;cursor:default;}
-  .brand-tile:hover{background:rgba(255,255,255,.08);border-color:rgba(201,147,58,.3);transform:translateY(-2px);}
-  .brand-name{font-family:'Archivo Black',sans-serif;font-size:.78rem;color:var(--cream);line-height:1.2;}
-  .brand-cat{font-size:.55rem;letter-spacing:.15em;text-transform:uppercase;color:rgba(242,232,208,.28);}
-  @media(max-width:768px){.brands-grid{grid-template-columns:repeat(2,1fr);}.brands-section{padding:2.5rem 1.5rem;}}
+/* ── RESPONSIVE ── */
+@media(max-width:900px){
+  nav{padding:1rem 1.5rem;}
+  .hero{grid-template-columns:1fr;min-height:auto;}
+  .hero-left{padding:2rem 1.5rem;}
+  .hero-right{padding:1.5rem;}.hero-arch-frame{width:220px;height:290px;border-radius:110px 110px 8px 8px;}
+  .hero-stats{grid-template-columns:repeat(2,1fr);}
+  .about-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .events-grid{grid-template-columns:1fr;}
+  .ev-card-wide{grid-column:span 1;}
+  .roadshow-grid{grid-template-columns:repeat(2,1fr);}
+  .project-grid{grid-template-columns:repeat(2,1fr);}
+  .contact-grid{grid-template-columns:1fr;gap:2.5rem;}
+  .section{padding:4rem 1.5rem;}
+  .brands-section{padding:2rem 1.5rem;}
+  footer{flex-direction:column;gap:.8rem;text-align:center;padding:1.2rem;}
+}
+@media(max-width:480px){
+  .project-grid{grid-template-columns:1fr;}
+  .nav-links a:not(.nav-cta){display:none;}
+}
 </style>
 </head>
 <body>
+
+<!-- CURSOR -->
+<div class="cursor" id="cursor"></div>
+<div class="cursor-ring" id="cursorRing"></div>
 
 <!-- BACK TO TOP -->
 <button class="back-top" id="backTop" onclick="window.scrollTo({top:0,behavior:'smooth'})">↑ Top</button>
 
 <!-- NAV -->
 <nav>
-  <span class="nav-logo">Winni Tan</span>
+  <span class="nav-logo">Winni<span>.</span></span>
   <div class="nav-links">
     <a href="#about">About</a>
     <a href="#events">Events</a>
@@ -275,109 +243,185 @@
 
 <!-- HERO -->
 <section class="hero" id="home">
-  <div class="hero-top-bar">
-    <span class="htb">Est. 2021</span>
-    <span class="htb hi">Portfolio 2026</span>
-    <span class="htb">Singapore</span>
-  </div>
-  <div class="hero-center">
-    <p class="hero-presents">Presenting</p>
-    <h1 class="hero-name">WINNI<span>TAN</span></h1>
-    <p class="hero-subtitle">Marketing Executive & Creative Designer</p>
-    <hr class="hero-divider"/>
-    <div class="hero-credits">
-      <div class="hero-credit"><span class="hc-num">3+</span><span class="hc-label">Years in Industry</span></div>
-      <div class="hero-credit"><span class="hc-num">10+</span><span class="hc-label">Major Travel Fairs</span></div>
-      <div class="hero-credit"><span class="hc-num">30+</span><span class="hc-label">Roadshow Experiences</span></div>
-      <div class="hero-credit"><span class="hc-num">4</span><span class="hc-label">Cruise Lines</span></div>
+  <div class="hero-left">
+    <p class="hero-eyebrow">Marketing Executive & Creative Designer</p>
+    <h1 class="hero-name">Winni<br><em>Tan.</em></h1>
+    <p class="hero-sub">Fluent in <strong>Illustrator, Photoshop & Canva</strong> — bridging strategy and design so campaigns don't just get planned, they get made beautifully.</p>
+    <div class="hero-actions">
+      <a href="#portfolio" class="btn-primary">See My Work</a>
+      <a href="#contact" class="btn-ghost">Get In Touch</a>
     </div>
-    <div class="hero-bottom-row">
-      <div class="hero-side">
-        <span class="hero-side-tag">Designer &amp; Marketer</span>
-        <p class="hero-bio-side">Business grad fluent in <strong>Illustrator, Photoshop & video</strong> — strategy and design in one.</p>
-        <button class="hero-btn" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">See My Work</button>
-      </div>
-      <div class="hero-photo-wrap">
-        <div class="hero-photo">
-          <!-- Replace photo.jpg with your actual photo file -->
-          <img src="photo.jpg" alt="Winni Tan" onerror="this.style.display='none'"/>
-          <span class="hero-photo-i">WT</span>
-          <span class="hero-photo-h">Your Photo Here</span>
-        </div>
-      </div>
-      <div class="hero-side-right">
-        <span class="hero-side-tag">NATAS 2023–2026</span>
-        <span class="hero-side-tag">Singapore Airlines</span>
-        <span class="hero-side-tag">Disney Cruise Line</span>
-        <span class="hero-side-tag">Royal Caribbean</span>
-      </div>
+    <div class="hero-stats">
+      <div><span class="h-stat-num">3+</span><span class="h-stat-label">Years</span></div>
+      <div><span class="h-stat-num">10+</span><span class="h-stat-label">Travel Fairs</span></div>
+      <div><span class="h-stat-num">30+</span><span class="h-stat-label">Roadshows</span></div>
+      <div><span class="h-stat-num">16+</span><span class="h-stat-label">Brands</span></div>
     </div>
   </div>
+  <div class="hero-right">
+    <div class="hero-img-wrap">
+      <div class="hero-arch-frame">
+        <img src="photo.jpg" alt="Winni Tan" onerror="this.style.opacity='0'"/>
+      </div>
+      <span class="hero-img-tag">📍 Singapore</span>
+    </div>
+  </div>
+  <div class="hero-scroll">↓ Scroll</div>
 </section>
+
+<!-- BRANDS MARQUEE -->
+<div class="brands-section">
+  <p class="brands-label">Brands I've Worked With</p>
+  <div class="brands-marquee-wrap">
+    <div class="brands-marquee" id="marquee">
+      <div class="brand-logo-item">
+        <img src="images/Singapore-Airlines-Logo.png" alt="Singapore Airlines" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Singapore Airlines</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Royal-Caribbean_Logo.png" alt="Royal Caribbean" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Royal Caribbean</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Star-Cruise_Logo.png" alt="Star Dream Cruises" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Star Dream Cruises</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Asiana_Airlines-Logo.png" alt="Asiana Airlines" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Asiana Airlines</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Qantas-Airways-Logo.png" alt="Qantas Airways" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Qantas Airways</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Korea-Tourism_Logo.png" alt="Korea Tourism" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Korea Tourism</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Taiwan-Tourism_Logo.png" alt="Taiwan Tourism" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Taiwan Tourism</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Hong Kong Tourism Board.png" alt="Hong Kong Tourism" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Hong Kong Tourism</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Tourism-Australia_Logo.png" alt="Tourism Australia" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Tourism Australia</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Aussie-Specialist_Logo.png" alt="Aussie Specialist" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Aussie Specialist</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Japan-SAGA-Kyushu_Logo.png" alt="Japan SAGA Kyushu" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Japan SAGA Kyushu</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Gyeonggi-do_Logo.png" alt="Gyeonggi-do" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Gyeonggi-do</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Gornergrat Matterhorn.png" alt="Gornergrat Matterhorn" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Gornergrat Matterhorn</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Tripzilla-Logo.png" alt="Tripzilla" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Tripzilla</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Singapore-Airlines-Logo.png" alt="Singapore Airlines" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Singapore Airlines</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Royal-Caribbean_Logo.png" alt="Royal Caribbean" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Royal Caribbean</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Star-Cruise_Logo.png" alt="Star Dream Cruises" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Star Dream Cruises</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Asiana_Airlines-Logo.png" alt="Asiana Airlines" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Asiana Airlines</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Qantas-Airways-Logo.png" alt="Qantas Airways" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Qantas Airways</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Korea-Tourism_Logo.png" alt="Korea Tourism" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Korea Tourism</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Taiwan-Tourism_Logo.png" alt="Taiwan Tourism" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Taiwan Tourism</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Hong Kong Tourism Board.png" alt="Hong Kong Tourism" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Hong Kong Tourism</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Tourism-Australia_Logo.png" alt="Tourism Australia" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Tourism Australia</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Aussie-Specialist_Logo.png" alt="Aussie Specialist" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Aussie Specialist</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Japan-SAGA-Kyushu_Logo.png" alt="Japan SAGA Kyushu" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Japan SAGA Kyushu</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Gyeonggi-do_Logo.png" alt="Gyeonggi-do" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Gyeonggi-do</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Gornergrat Matterhorn.png" alt="Gornergrat Matterhorn" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Gornergrat Matterhorn</span>
+      </div>
+      <div class="brand-logo-item">
+        <img src="images/Tripzilla-Logo.png" alt="Tripzilla" onerror="this.style.display='none';this.nextElementSibling.style.display='block'"/>
+        <span class="brand-logo-fallback">Tripzilla</span>
+      </div>
+    </div>
+  </div>
+</div>
 
 <!-- ABOUT -->
-<section class="about-band" id="about">
-  <div class="reveal-left">
-    <div style="display:flex;align-items:baseline;gap:.6rem;margin-bottom:.5rem;">
-      <span class="ab-sec-num">01</span>
-      <p class="ab-sec-label">About Me</p>
+<section class="about-section section" id="about">
+  <div class="about-grid">
+    <div class="reveal-left">
+      <p class="sec-eyebrow">01 — About Me</p>
+      <h2 class="sec-title">Business Brain.<br><em>Creative Soul.</em></h2>
+      <p class="about-bio">I'm a marketing professional who also speaks design. Fluent in <strong>Illustrator, Photoshop, Canva and video editing</strong>, I bridge the gap between strategy and execution — so campaigns don't just get planned, they get made well.<br><br>3+ years at Nam Ho Travel has put me on the ground at NATAS, Singapore Airlines' Time to Fly, and 30+ roadshows. I handle everything from funding proposals to booth visuals — and I take ownership at every step.</p>
+      <div style="display:flex;gap:.8rem;flex-wrap:wrap;">
+        <a href="#portfolio" class="btn-primary">View My Work</a>
+        <a href="#contact" class="btn-ghost">Get In Touch</a>
+      </div>
     </div>
-    <h2 class="ab-title">Business Brain.<br>Creative Soul.</h2>
-    <p class="ab-bio">
-      I studied business — but somewhere along the way, I fell in love with making things. I taught myself <strong>Illustrator, Photoshop and video editing</strong> from scratch, because I couldn't wait for someone else to bring my ideas to life.<br><br>
-      Now, 3+ years in, I work where strategy meets design — leading campaigns, executing events, and crafting visuals that go from screen to real life. From NATAS Travel Fair to Singapore Airlines, I make sure every detail lands exactly right.
-    </p>
-    <div class="ab-ctas">
-      <button class="ab-btn1" onclick="document.getElementById('portfolio').scrollIntoView({behavior:'smooth'})">View My Work</button>
-      <button class="ab-btn2" onclick="document.getElementById('contact').scrollIntoView({behavior:'smooth'})">Get In Touch</button>
+    <div class="reveal-right">
+      <div class="skills-grid">
+        <div class="skill-row"><span class="skill-name">Adobe Illustrator</span><span class="skill-tag">Campaign Collateral</span></div>
+        <div class="skill-row"><span class="skill-name">Adobe Photoshop</span><span class="skill-tag">Visual Design</span></div>
+        <div class="skill-row"><span class="skill-name">Canva</span><span class="skill-tag">Design & Presentations</span></div>
+        <div class="skill-row"><span class="skill-name">Video Editing</span><span class="skill-tag">Social & Events</span></div>
+        <div class="skill-row"><span class="skill-name">AI-Assisted Design</span><span class="skill-tag">Midjourney · ChatGPT</span></div>
+        <div class="skill-row"><span class="skill-name">Event Design & Execution</span><span class="skill-tag">3+ Years</span></div>
+        <div class="skill-row"><span class="skill-name">Marketing & Campaigns</span><span class="skill-tag">Strategy → Execution</span></div>
+        <div class="skill-row"><span class="skill-name">Brand Storytelling</span><span class="skill-tag">Travel & Lifestyle</span></div>
+      </div>
     </div>
-  </div>
-  <div class="reveal-right">
-    <div class="ab-right">
-      <div class="ab-skill"><span class="ab-skill-name">Adobe Illustrator</span><span class="ab-skill-tag">Campaign Collateral</span></div>
-      <div class="ab-skill"><span class="ab-skill-name">Adobe Photoshop</span><span class="ab-skill-tag">Visual Design</span></div>
-      <div class="ab-skill gold"><span class="ab-skill-name">Canva</span><span class="ab-skill-tag">Design & Presentations</span></div>
-      <div class="ab-skill gold"><span class="ab-skill-name">Video Editing</span><span class="ab-skill-tag">Social & Events</span></div>
-      <div class="ab-skill sage"><span class="ab-skill-name">AI-Assisted Design</span><span class="ab-skill-tag">Midjourney · ChatGPT</span></div>
-      <div class="ab-skill sage"><span class="ab-skill-name">Event Design & Execution</span><span class="ab-skill-tag">3+ Years</span></div>
-      <div class="ab-skill sage"><span class="ab-skill-name">Marketing & Campaigns</span><span class="ab-skill-tag">Strategy → Execution</span></div>
-      <div class="ab-skill gold"><span class="ab-skill-name">Brand Storytelling</span><span class="ab-skill-tag">Travel & Lifestyle</span></div>
-    </div>
-  </div>
-</section>
-
-
-<!-- BRANDS -->
-<section class="brands-section">
-  <p class="brands-label">Brands I've Worked With</p>
-  <div class="brands-grid">
-    <div class="brand-tile"><span class="brand-name">Singapore Airlines</span><span class="brand-cat">Airline</span></div>
-    <div class="brand-tile"><span class="brand-name">Royal Caribbean</span><span class="brand-cat">Cruise Line</span></div>
-    <div class="brand-tile"><span class="brand-name">Disney Cruise Line</span><span class="brand-cat">Cruise Line</span></div>
-    <div class="brand-tile"><span class="brand-name">Star Dream Cruises</span><span class="brand-cat">Cruise Line</span></div>
-    <div class="brand-tile"><span class="brand-name">Avalon River Cruise</span><span class="brand-cat">Cruise Line</span></div>
-    <div class="brand-tile"><span class="brand-name">Trafalgar</span><span class="brand-cat">Tour Operator</span></div>
-    <div class="brand-tile"><span class="brand-name">NATAS</span><span class="brand-cat">Travel Association</span></div>
-    <div class="brand-tile"><span class="brand-name">Citibank</span><span class="brand-cat">Banking Partner</span></div>
-    <div class="brand-tile"><span class="brand-name">UOB Bank</span><span class="brand-cat">Banking Partner</span></div>
-    <div class="brand-tile"><span class="brand-name">Singapore Tourism Board</span><span class="brand-cat">Tourism Board</span></div>
-    <div class="brand-tile"><span class="brand-name">Taiwan Tourism</span><span class="brand-cat">Tourism Board</span></div>
-    <div class="brand-tile"><span class="brand-name">Hong Kong Tourism</span><span class="brand-cat">Tourism Board</span></div>
-    <div class="brand-tile"><span class="brand-name">Korea Tourism</span><span class="brand-cat">Tourism Board</span></div>
-    <div class="brand-tile"><span class="brand-name">China Tourism</span><span class="brand-cat">Tourism Board</span></div>
-    <div class="brand-tile"><span class="brand-name">Tourism Australia</span><span class="brand-cat">Tourism Board</span></div>
-    <div class="brand-tile"><span class="brand-name">Tourism New Zealand</span><span class="brand-cat">Tourism Board</span></div>
   </div>
 </section>
 
 <!-- EVENTS -->
-<section class="events-section" id="events">
-  <div class="sec-header reveal">
-    <div class="sec-num-title">
-      <span class="sec-num">02</span>
-      <h2 class="sec-title">Event Experience</h2>
-    </div>
-    <span class="sec-sub">Live Activations & Fairs</span>
+<section class="events-section section" id="events">
+  <div class="reveal">
+    <p class="sec-eyebrow">02 — Event Experience</p>
+    <h2 class="sec-title">Live Activations<br><em>& Fairs.</em></h2>
   </div>
   <div class="events-grid reveal">
     <div class="ev-card">
@@ -405,360 +449,404 @@
     <div class="rs-card"><div class="rs-name">Disney Cruise Line</div><div class="rs-type">Cruise Roadshow</div></div>
     <div class="rs-card"><div class="rs-name">Star Dream Cruises</div><div class="rs-type">Cruise Roadshow</div></div>
     <div class="rs-card"><div class="rs-name">Royal Caribbean</div><div class="rs-type">Cruise Roadshow</div></div>
-    <div class="rs-card"><div class="rs-name">Tourism Board</div><div class="rs-type">Travel Roadshow</div></div>
+    <div class="rs-card"><div class="rs-name">Tourism Boards</div><div class="rs-type">Travel Roadshow</div></div>
   </div>
 </section>
 
 <!-- PORTFOLIO -->
-<section class="portfolio-section" id="portfolio">
-  <div class="sec-header reveal">
-    <div class="sec-num-title">
-      <span class="sec-num">03</span>
-      <h2 class="sec-title" style="color:var(--ink);">Design Portfolio</h2>
-    </div>
-    <span class="sec-sub" style="color:var(--olive-mid);">Selected Works</span>
+<section class="portfolio-section section" id="portfolio">
+  <div class="reveal">
+    <p class="sec-eyebrow">03 — Design Portfolio</p>
+    <h2 class="sec-title">Selected<br><em>Works.</em></h2>
   </div>
 
-  <!-- TABS -->
   <div class="port-tabs reveal">
-    <button class="port-tab active" onclick="switchTab('events-tab', this)">🎪 Events</button>
-    <button class="port-tab" onclick="switchTab('print-tab', this)">🎨 Print Design</button>
-    <button class="port-tab" onclick="switchTab('digital-tab', this)">📱 Digital</button>
+    <button class="port-tab active" onclick="switchPortTab('design-tab', this)">🎨 Design Work</button>
+    <button class="port-tab" onclick="switchPortTab('events-photo-tab', this)">🎪 Event Photos</button>
   </div>
 
-  <!-- TAB: EVENTS -->
-  <div class="tab-panel" id="events-tab">
-    <div class="gallery-section-label">NATAS Travel Fair</div>
-    <div class="gal-grid">
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/NATAS2023_Feb.JPG" alt="NATAS Travel Feb 2023" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">NATAS Travel Feb 2023</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/NATAS223_Aug.jpeg" alt="NATAS Holiday Aug 2023" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">NATAS Holiday Aug 2023</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/NATAS2024_Feb1.jpg" alt="NATAS Travel Feb 2024" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">NATAS Travel Feb 2024</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/NATAS2024_Aug.jpg" alt="NATAS Holiday Aug 2024" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">NATAS Holiday Aug 2024</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/NATAS2025_March.jpeg" alt="NATAS Travel Mar 2025" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">NATAS Travel Mar 2025</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/NATAS2025_Aug1.jpeg" alt="NATAS Holiday Aug 2025" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">NATAS Holiday Aug 2025</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-    </div>
+  <!-- DESIGN WORK TAB -->
+  <div class="tab-panel" id="design-tab">
+    <div class="project-grid reveal">
 
-    <div class="gallery-section-label" style="margin-top:2rem;">Roadshows & Travel Fairs</div>
-    <div class="gal-grid">
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/CruiseRoadshow_RCI.JPG" alt="Royal Caribbean Roadshow" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">Cruise Roadshow</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
+      <div class="proj-card" onclick="openProject('korea-flyer')">
+        <img src="images/2026_KoreaFair_FlyerPage1.png" alt="Korea Fair Flyer 2026"/>
+        <div class="proj-always"><span class="proj-always-name">Korea Fair Flyer 2026</span></div>
+        <div class="proj-overlay">
+          <span class="proj-cat">Flyer · 4 pages</span>
+          <span class="proj-name">Korea Fair Flyer 2026</span>
+          <span class="proj-pages">Click to view all pages →</span>
+        </div>
       </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/CruiseRoadshow_RCI_1.JPG" alt="Royal Caribbean Roadshow" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">Royal Caribbean</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/CruiseRoadshow_RCI_2.JPG" alt="RCI Roadshow Setup" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">Cruise Setup</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/TimeToFly_2023.jpg" alt="SIA Time to Fly 2023" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">SIA Time to Fly</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/TravelFair_KoreaFair2025.jpeg" alt="Korea Travel Fair 2025" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">Korea Travel Fair 2025</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/TravelFair_JapanFair2023.jpg" alt="Japan Travel Fair 2023" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">Japan Travel Fair 2023</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/TravelFair_JapanFair2022.jpeg" alt="Japan Travel Fair 2022" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">Japan Travel Fair 2022</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/TravelFair_ChinaFair2024.jpg" alt="China Travel Fair 2024" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">China Travel Fair 2024</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/TravelFair_MacauFair2024.jpeg" alt="Macau Fair 2024" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">Macau Fair 2024</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/TravelFair_TaiwanFair.jpeg" alt="Taiwan Fair" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">Taiwan Fair</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/TravelFair_TravelMalaysia2023.jpeg" alt="Malaysia Travel Fair 2023" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">Malaysia Travel Fair 2023</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/Lightbox_1.jpeg" alt="In-Store Promotional Display" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">In-Store Promo Display</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-    </div>
-  </div>
 
-  <!-- TAB: PRINT DESIGN -->
-  <div class="tab-panel" id="print-tab" style="display:none;">
-    <div class="gallery-section-label">Flyers</div>
-    <div class="gal-grid">
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/Flyer_Taiwan.jpeg" alt="Taiwan Itinerary Flyer" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">Taiwan Itinerary</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
+      <div class="proj-card" onclick="openProject('china-flyer')">
+        <img src="images/2025-ChinaFair_Flyer_Page1.png" alt="China Fair Flyer 2025"/>
+        <div class="proj-always"><span class="proj-always-name">China Fair Flyer 2025</span></div>
+        <div class="proj-overlay">
+          <span class="proj-cat">Flyer · 4 pages</span>
+          <span class="proj-name">China Fair Flyer 2025</span>
+          <span class="proj-pages">Click to view all pages →</span>
+        </div>
       </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/Flyer_Taiwan1.jpeg" alt="Taiwan Tour Flyer" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">Taiwan Tour</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/Flyer_Korea.jpeg" alt="Korea Itinerary Flyer" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">Korea Itinerary</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-    </div>
 
-    <div class="gallery-section-label" style="margin-top:2rem;">Pull-up Banners</div>
-    <div class="gal-grid">
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/Banner_HongKong1.jpeg" alt="Hong Kong Banner" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">Hong Kong Banner</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
+      <div class="proj-card" onclick="openProject('shanghai-itinerary')">
+        <img src="images/2025_Shanghai_SpecialTour_ItineraryPage1.png" alt="Shanghai Special Tour Itinerary"/>
+        <div class="proj-always"><span class="proj-always-name">Shanghai Special Tour</span></div>
+        <div class="proj-overlay">
+          <span class="proj-cat">Itinerary · 2 pages</span>
+          <span class="proj-name">Shanghai Special Tour</span>
+          <span class="proj-pages">Click to view all pages →</span>
+        </div>
       </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/Banner_HongKong_Korea.jpg" alt="HK & Korea Banner" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">HK & Korea Banner</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/Banner_RCI_Flycruise.jpeg" alt="Royal Caribbean Cruise-Fly Banner" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">Royal Caribbean Cruise-Fly</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/Banner_Shandong.JPG" alt="Shandong Pull-up Banner" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">Shandong Flora Tour</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
-      </div>
-    </div>
-  </div>
 
-  <!-- TAB: DIGITAL -->
-  <div class="tab-panel" id="digital-tab" style="display:none;">
-    <div class="gallery-section-label">In-Store Display Design</div>
-    <div class="gal-grid">
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/Lightbox_1.jpeg" alt="In-Store Promotional Display" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">In-Store Promo Display</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
+      <div class="proj-card" onclick="openProject('natas-aug-banners')">
+        <img src="images/2025-NATAS_AUG_PullupBanner1.png" alt="NATAS AUG Pull-up Banners"/>
+        <div class="proj-always"><span class="proj-always-name">NATAS AUG Banners 2025</span></div>
+        <div class="proj-overlay">
+          <span class="proj-cat">Pull-up Banners · 9 designs</span>
+          <span class="proj-name">NATAS AUG Banners 2025</span>
+          <span class="proj-pages">Click to view all designs →</span>
+        </div>
       </div>
-    </div>
 
-    <div class="gallery-section-label" style="margin-top:2rem;">Social Media Posts</div>
-    <div class="gal-grid">
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/Digital_Posting_Shandong.jpeg" alt="Shandong Digital Posting" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">Shandong Flora Tour</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
+      <div class="proj-card" onclick="openProject('natas-mar-banners')">
+        <img src="images/2025-NATAS_MAR_PullupBanner1.png" alt="NATAS MAR Pull-up Banners"/>
+        <div class="proj-always"><span class="proj-always-name">NATAS MAR Banners 2025</span></div>
+        <div class="proj-overlay">
+          <span class="proj-cat">Pull-up Banners · 4 designs</span>
+          <span class="proj-name">NATAS MAR Banners 2025</span>
+          <span class="proj-pages">Click to view all designs →</span>
+        </div>
       </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/Digital_Posting_Taiwan.jpeg" alt="Taiwan Digital Posting" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">Taiwan Postcard Post</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
+
+      <div class="proj-card" onclick="openProject('natas-pullup')">
+        <img src="images/2025-NATAS_Pull_up_Banner1.png" alt="NATAS Pull-up Banners"/>
+        <div class="proj-always"><span class="proj-always-name">NATAS Pull-up Banners</span></div>
+        <div class="proj-overlay">
+          <span class="proj-cat">Pull-up Banners · 5 designs</span>
+          <span class="proj-name">NATAS Pull-up Banners</span>
+          <span class="proj-pages">Click to view all designs →</span>
+        </div>
       </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/Digital_Posting_Macau.jpg" alt="Macau Digital Posting" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">Macau Digital Post</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
+
+      <div class="proj-card" onclick="openProject('korea-backdrop')">
+        <img src="images/2026-KoreaFair_Backdrop.png" alt="Korea Fair Backdrop 2026"/>
+        <div class="proj-always"><span class="proj-always-name">Korea Fair Backdrop 2026</span></div>
+        <div class="proj-overlay">
+          <span class="proj-cat">Backdrop · 1 design</span>
+          <span class="proj-name">Korea Fair Backdrop 2026</span>
+          <span class="proj-pages">Click to view →</span>
+        </div>
       </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/Digital_Posting_RCI.jpeg" alt="Royal Caribbean Digital Posting" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">Royal Caribbean</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
+
+      <div class="proj-card" onclick="openProject('natas-booth')">
+        <img src="images/2026-NATAS_March_BoothPanel1.png" alt="NATAS March Booth Panels 2026"/>
+        <div class="proj-always"><span class="proj-always-name">NATAS Booth Panels 2026</span></div>
+        <div class="proj-overlay">
+          <span class="proj-cat">Booth Design · 5 panels</span>
+          <span class="proj-name">NATAS Booth Panels 2026</span>
+          <span class="proj-pages">Click to view all panels →</span>
+        </div>
       </div>
-      <div class="gal-item" onclick="openLightbox(this)">
-        <img src="images/Digital_Posting_InhouseFair.jpeg" alt="In-House Fair Digital Posting" onerror="this.parentElement.classList.add('gal-placeholder')"/>
-        <div class="gal-label">In-House Fair Post</div>
-        <div class="gal-overlay"><span>View ↗</span></div>
+
+      <div class="proj-card" onclick="openProject('natas-2026-banner')">
+        <img src="images/2026-NATAS_Pullup_Banner.png" alt="NATAS 2026 Pull-up Banner"/>
+        <div class="proj-always"><span class="proj-always-name">NATAS Banner 2026</span></div>
+        <div class="proj-overlay">
+          <span class="proj-cat">Pull-up Banner · 1 design</span>
+          <span class="proj-name">NATAS Banner 2026</span>
+          <span class="proj-pages">Click to view →</span>
+        </div>
       </div>
+
+      <div class="proj-card" onclick="openProject('private-preview')">
+        <img src="images/2026-PrivatePreview_Feb_Page1.png" alt="Private Preview Feb 2026"/>
+        <div class="proj-always"><span class="proj-always-name">Private Preview Booklet 2026</span></div>
+        <div class="proj-overlay">
+          <span class="proj-cat">Booklet · 16 pages</span>
+          <span class="proj-name">Private Preview Booklet 2026</span>
+          <span class="proj-pages">Click to view all pages →</span>
+        </div>
+      </div>
+
+      <div class="proj-card" onclick="openProject('digital-tv')">
+        <img src="images/DigitalTVSlider1.png" alt="Digital TV Slider"/>
+        <div class="proj-always"><span class="proj-always-name">Digital TV Slider</span></div>
+        <div class="proj-overlay">
+          <span class="proj-cat">In-Store Display · 3 slides</span>
+          <span class="proj-name">Digital TV Slider</span>
+          <span class="proj-pages">Click to view all slides →</span>
+        </div>
+      </div>
+
+      <div class="proj-card" onclick="openProject('disney-restaurants')">
+        <img src="images/Disney_SocialMedia_Restaurants1.png" alt="Disney Social Media Restaurants"/>
+        <div class="proj-always"><span class="proj-always-name">Disney — Restaurant Series</span></div>
+        <div class="proj-overlay">
+          <span class="proj-cat">Social Media · 6 posts</span>
+          <span class="proj-name">Disney — Restaurant Series</span>
+          <span class="proj-pages">Click to view all posts →</span>
+        </div>
+      </div>
+
+      <div class="proj-card" onclick="openProject('disney-activities')">
+        <img src="images/Disney_SocialMedia_SpecialActivity1.png" alt="Disney Social Media Special Activity"/>
+        <div class="proj-always"><span class="proj-always-name">Disney — Activities Series</span></div>
+        <div class="proj-overlay">
+          <span class="proj-cat">Social Media · 7 posts</span>
+          <span class="proj-name">Disney — Activities Series</span>
+          <span class="proj-pages">Click to view all posts →</span>
+        </div>
+      </div>
+
+      <div class="proj-card" onclick="openProject('europe-itinerary')">
+        <img src="images/Europe_Itinerary_Page1.png" alt="Europe Itinerary"/>
+        <div class="proj-always"><span class="proj-always-name">Europe Itinerary</span></div>
+        <div class="proj-overlay">
+          <span class="proj-cat">Itinerary · 2 pages</span>
+          <span class="proj-name">Europe Itinerary</span>
+          <span class="proj-pages">Click to view all pages →</span>
+        </div>
+      </div>
+
+      <div class="proj-card" onclick="openProject('yunnan-itinerary')">
+        <img src="images/Yunnan_TourItinerary_Page1.png" alt="Yunnan Tour Itinerary"/>
+        <div class="proj-always"><span class="proj-always-name">Yunnan Tour Itinerary</span></div>
+        <div class="proj-overlay">
+          <span class="proj-cat">Itinerary · 4 pages</span>
+          <span class="proj-name">Yunnan Tour Itinerary</span>
+          <span class="proj-pages">Click to view all pages →</span>
+        </div>
+      </div>
+
     </div>
   </div>
 
-  <!-- LIGHTBOX -->
-  <div class="lightbox" id="lightbox" onclick="closeLightbox(event)">
-    <button class="lb-close" onclick="closeLightbox()">✕</button>
-    <button class="lb-prev" onclick="changeImage(-1)">&#8592;</button>
-    <button class="lb-next" onclick="changeImage(1)">&#8594;</button>
-    <div class="lb-inner">
-      <img id="lb-img" src="" alt=""/>
-      <p id="lb-caption"></p>
+  <!-- EVENT PHOTOS TAB -->
+  <div class="tab-panel" id="events-photo-tab" style="display:none;">
+    <div class="project-grid reveal">
+      <div class="proj-card" onclick="openProject('natas-photos')">
+        <img src="images/NATAS2023_Feb.JPG" alt="NATAS Travel Fair"/>
+        <div class="proj-always"><span class="proj-always-name">NATAS Travel Fair</span></div>
+        <div class="proj-overlay">
+          <span class="proj-cat">Event Photos · 6 photos</span>
+          <span class="proj-name">NATAS Travel Fair</span>
+          <span class="proj-pages">Click to view →</span>
+        </div>
+      </div>
+      <div class="proj-card" onclick="openProject('sia-photos')">
+        <img src="images/TimeToFly_2023.jpg" alt="SIA Time to Fly"/>
+        <div class="proj-always"><span class="proj-always-name">SIA Time to Fly</span></div>
+        <div class="proj-overlay">
+          <span class="proj-cat">Event Photo</span>
+          <span class="proj-name">SIA Time to Fly 2023</span>
+          <span class="proj-pages">Click to view →</span>
+        </div>
+      </div>
+      <div class="proj-card" onclick="openProject('cruise-photos')">
+        <img src="images/CruiseRoadshow_RCI.JPG" alt="Cruise Roadshows"/>
+        <div class="proj-always"><span class="proj-always-name">Cruise Roadshows</span></div>
+        <div class="proj-overlay">
+          <span class="proj-cat">Event Photos · 6 photos</span>
+          <span class="proj-name">Cruise Roadshows</span>
+          <span class="proj-pages">Click to view →</span>
+        </div>
+      </div>
+      <div class="proj-card" onclick="openProject('other-fairs-photos')">
+        <img src="images/TravelFair_KoreaFair2025.jpeg" alt="Travel Fairs"/>
+        <div class="proj-always"><span class="proj-always-name">Travel Fairs</span></div>
+        <div class="proj-overlay">
+          <span class="proj-cat">Event Photos · 8 photos</span>
+          <span class="proj-name">Travel Fairs</span>
+          <span class="proj-pages">Click to view →</span>
+        </div>
+      </div>
     </div>
   </div>
+
 </section>
 
+<!-- PROJECT LIGHTBOX -->
+<div class="proj-lightbox" id="projLightbox">
+  <div class="plb-header">
+    <div class="plb-title-wrap">
+      <span class="plb-cat" id="plbCat"></span>
+      <span class="plb-name" id="plbName"></span>
+    </div>
+    <div style="display:flex;align-items:center;gap:1rem;">
+      <span class="plb-counter" id="plbCounter"></span>
+      <button class="plb-close" onclick="closeProject()">✕</button>
+    </div>
+  </div>
+  <div class="plb-body">
+    <button class="plb-nav plb-prev" onclick="plbNav(-1)">←</button>
+    <div class="plb-img-wrap"><img id="plbImg" src="" alt=""/></div>
+    <button class="plb-nav plb-next" onclick="plbNav(1)">→</button>
+  </div>
+  <div class="plb-footer" id="plbThumbs"></div>
+</div>
+
 <!-- CONTACT -->
-<section class="contact-section" id="contact">
-  <div class="contact-bg">HELLO</div>
+<section class="contact-section section" id="contact">
   <div class="contact-grid">
     <div class="reveal-left">
-      <p class="contact-sec-label">04 — Get In Touch</p>
+      <p class="sec-eyebrow">04 — Get In Touch</p>
       <h2 class="contact-headline">Let's Make<br>Something <em>Real.</em></h2>
       <p class="contact-intro">Open to brand campaigns, event creative direction, and design collaborations. If you've got a bold idea, I'm already interested.</p>
-      <div class="socials">
-        <a class="social" href="mailto:winni.tan7@gmail.com">✉ Email</a>
-        <a class="social" href="https://www.linkedin.com/in/winni-tan-sze-nie-3961b8151/" target="_blank">in LinkedIn</a>
+      <div class="contact-btns">
+        <a class="contact-btn" href="mailto:winni.tan7@gmail.com">
+          <span class="cb-icon">✉</span>
+          <span class="cb-text"><span class="cb-label">Send me an email</span><span class="cb-sub">winni.tan7@gmail.com</span></span>
+        </a>
+        <a class="contact-btn" href="https://www.linkedin.com/in/winni-tan-sze-nie-3961b8151/" target="_blank">
+          <span class="cb-icon">in</span>
+          <span class="cb-text"><span class="cb-label">Connect on LinkedIn</span><span class="cb-sub">Winni Tan Sze Nie</span></span>
+        </a>
       </div>
     </div>
-    <div class="reveal-right" style="display:flex;flex-direction:column;gap:1.2rem;justify-content:center;">
-      <a class="cf-action-btn" href="mailto:winni.tan7@gmail.com">
-        <span class="cf-btn-icon">✉</span>
-        <span class="cf-btn-text">
-          <span class="cf-btn-label">Send me an email</span>
-          <span class="cf-btn-sub">winni.tan7@gmail.com</span>
-        </span>
-      </a>
-      <a class="cf-action-btn" href="https://www.linkedin.com/in/winni-tan-sze-nie-3961b8151/" target="_blank">
-        <span class="cf-btn-icon">in</span>
-        <span class="cf-btn-text">
-          <span class="cf-btn-label">Connect on LinkedIn</span>
-          <span class="cf-btn-sub">Winni Tan Sze Nie</span>
-        </span>
-      </a>
-      <a class="cf-action-btn cf-btn-resume" href="Resume__Winni_Tan_Sze_Nie_.pdf" download>
-        <span class="cf-btn-icon">↓</span>
-        <span class="cf-btn-text">
-          <span class="cf-btn-label">Download My Resume</span>
-          <span class="cf-btn-sub">PDF · Updated 2026</span>
-        </span>
-      </a>
+    <div class="contact-right reveal-right">
+      <div class="avail-badge"><span class="avail-dot"></span>Open to new opportunities</div>
+      <p class="contact-quote">"Strategy without <span>creativity</span> is just a spreadsheet."</p>
     </div>
   </div>
 </section>
 
 <!-- FOOTER -->
 <footer>
-  <span class="ft">© 2026 Winni Tan</span>
+  <span class="ft">© 2026 Winni Tan · Singapore</span>
   <div class="ft-links">
     <a class="ft-link" href="mailto:winni.tan7@gmail.com">Email</a>
     <a class="ft-link" href="https://www.linkedin.com/in/winni-tan-sze-nie-3961b8151/" target="_blank">LinkedIn</a>
   </div>
-  <span class="ft">Marketing Executive & Designer · Singapore</span>
+  <span class="ft">Marketing Executive & Creative Designer</span>
 </footer>
 
 <script>
-  // Scroll reveal
-  const revealEls = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
-  const observer = new IntersectionObserver((entries)=>{
-    entries.forEach(e=>{
-      if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);}
-    });
-  },{threshold:0.12});
-  revealEls.forEach(el=>observer.observe(el));
+// ── CURSOR ──
+const cursor = document.getElementById('cursor');
+const ring = document.getElementById('cursorRing');
+document.addEventListener('mousemove', e => {
+  cursor.style.left = e.clientX - 4 + 'px';
+  cursor.style.top = e.clientY - 4 + 'px';
+  ring.style.left = e.clientX + 'px';
+  ring.style.top = e.clientY + 'px';
+});
+document.querySelectorAll('a,button,.proj-card').forEach(el => {
+  el.addEventListener('mouseenter', () => { cursor.style.transform = 'scale(2.5)'; ring.style.transform = 'translate(-14px,-14px) scale(1.4)'; ring.style.borderColor = 'rgba(74,92,63,.8)'; });
+  el.addEventListener('mouseleave', () => { cursor.style.transform = 'scale(1)'; ring.style.transform = 'translate(-14px,-14px) scale(1)'; ring.style.borderColor = 'rgba(74,92,63,.35)'; });
+});
 
-  // Back to top button
-  const backTop = document.getElementById('backTop');
-  window.addEventListener('scroll',()=>{
-    backTop.classList.toggle('show', window.scrollY > 400);
+// ── SCROLL REVEAL ──
+const revealEls = document.querySelectorAll('.reveal,.reveal-left,.reveal-right');
+const observer = new IntersectionObserver(entries => {
+  entries.forEach(e => { if(e.isIntersecting){e.target.classList.add('visible');observer.unobserve(e.target);} });
+},{threshold:0.1});
+revealEls.forEach(el => observer.observe(el));
+
+// ── BACK TO TOP ──
+const backTop = document.getElementById('backTop');
+window.addEventListener('scroll', () => { backTop.classList.toggle('show', window.scrollY > 400); });
+
+// ── NAV ACTIVE ──
+const sections = document.querySelectorAll('section[id]');
+const navLinks = document.querySelectorAll('.nav-links a');
+window.addEventListener('scroll', () => {
+  let current = '';
+  sections.forEach(s => { if(window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id'); });
+  navLinks.forEach(a => { a.style.color = a.getAttribute('href') === '#' + current ? 'var(--white)' : ''; });
+});
+
+// ── PORTFOLIO TABS ──
+function switchPortTab(tabId, btn) {
+  document.querySelectorAll('.tab-panel').forEach(p => p.style.display = 'none');
+  document.querySelectorAll('.port-tab').forEach(b => b.classList.remove('active'));
+  document.getElementById(tabId).style.display = 'block';
+  btn.classList.add('active');
+}
+
+// ── PROJECT DATA ──
+const projects = {
+  'korea-flyer': { name:'Korea Fair Flyer 2026', cat:'Flyer', images:['images/2026_KoreaFair_FlyerPage1.png','images/2026_KoreaFair_FlyerPage2.png','images/2026_KoreaFair_FlyerPage3.png','images/2026_KoreaFair_FlyerPage4.png'] },
+  'china-flyer': { name:'China Fair Flyer 2025', cat:'Flyer', images:['images/2025-ChinaFair_Flyer_Page1.png','images/2025-ChinaFair_Flyer_Page2.png','images/2025-ChinaFair_Flyer_Page3.png','images/2025-ChinaFair_Flyer_Page4.png'] },
+  'shanghai-itinerary': { name:'Shanghai Special Tour', cat:'Itinerary', images:['images/2025_Shanghai_SpecialTour_ItineraryPage1.png','images/2025_Shanghai_SpecialTour_ItineraryPage2.png'] },
+  'natas-aug-banners': { name:'NATAS AUG Banners 2025', cat:'Pull-up Banners', images:['images/2025-NATAS_AUG_PullupBanner1.png','images/2025-NATAS_AUG_PullupBanner2.png','images/2025-NATAS_AUG_PullupBanner3.png','images/2025-NATAS_AUG_PullupBanner4.png','images/2025-NATAS_AUG_PullupBanner5.png','images/2025-NATAS_AUG_PullupBanner6.png','images/2025-NATAS_AUG_PullupBanner7.png','images/2025-NATAS_AUG_PullupBanner8.png','images/2025-NATAS_AUG_PullupBanner9.png'] },
+  'natas-mar-banners': { name:'NATAS MAR Banners 2025', cat:'Pull-up Banners', images:['images/2025-NATAS_MAR_PullupBanner1.png','images/2025-NATAS_MAR_PullupBanner2.png','images/2025-NATAS_MAR_PullupBanner3.png','images/2025-NATAS_MAR_PullupBanner4.png'] },
+  'natas-pullup': { name:'NATAS Pull-up Banners', cat:'Pull-up Banners', images:['images/2025-NATAS_Pull_up_Banner1.png','images/2025-NATAS_Pull_up_Banner2.png','images/2025-NATAS_Pull_up_Banner3.png','images/2025-NATAS_Pull_up_Banner4.png','images/2025-NATAS_Pull_up_Banner5.png'] },
+  'korea-backdrop': { name:'Korea Fair Backdrop 2026', cat:'Backdrop', images:['images/2026-KoreaFair_Backdrop.png'] },
+  'natas-booth': { name:'NATAS Booth Panels 2026', cat:'Booth Design', images:['images/2026-NATAS_March_BoothPanel1.png','images/2026-NATAS_March_BoothPanel2.png','images/2026-NATAS_March_BoothPanel3.png','images/2026-NATAS_March_BoothPanel4.png','images/2026-NATAS_March_BoothPanel5.png'] },
+  'natas-2026-banner': { name:'NATAS Banner 2026', cat:'Pull-up Banner', images:['images/2026-NATAS_Pullup_Banner.png'] },
+  'private-preview': { name:'Private Preview Booklet 2026', cat:'Booklet', images:['images/2026-PrivatePreview_Feb_Page1.png','images/2026-PrivatePreview_Feb_Page2.png','images/2026-PrivatePreview_Feb_Page3.png','images/2026-PrivatePreview_Feb_Page4.png','images/2026-PrivatePreview_Feb_Page5.png','images/2026-PrivatePreview_Feb_Page6.png','images/2026-PrivatePreview_Feb_Page7.png','images/2026-PrivatePreview_Feb_Page8.png','images/2026-PrivatePreview_Feb_Page9.png','images/2026-PrivatePreview_Feb_Page10.png','images/2026-PrivatePreview_Feb_Page11.png','images/2026-PrivatePreview_Feb_Page12.png','images/2026-PrivatePreview_Feb_Page13.png','images/2026-PrivatePreview_Feb_Page14.png','images/2026-PrivatePreview_Feb_Page15.png','images/2026-PrivatePreview_Feb_Page16.png'] },
+  'digital-tv': { name:'Digital TV Slider', cat:'In-Store Display', images:['images/DigitalTVSlider1.png','images/DigitalTVSlider2.png','images/DigitalTVSlider3.png'] },
+  'disney-restaurants': { name:'Disney — Restaurant Series', cat:'Social Media', images:['images/Disney_SocialMedia_Restaurants1.png','images/Disney_SocialMedia_Restaurants2.png','images/Disney_SocialMedia_Restaurants3.png','images/Disney_SocialMedia_Restaurants4.png','images/Disney_SocialMedia_Restaurants5.png','images/Disney_SocialMedia_Restaurants6.png'] },
+  'disney-activities': { name:'Disney — Activities Series', cat:'Social Media', images:['images/Disney_SocialMedia_SpecialActivity1.png','images/Disney_SocialMedia_SpecialActivity2.png','images/Disney_SocialMedia_SpecialActivity3.png','images/Disney_SocialMedia_SpecialActivity4.png','images/Disney_SocialMedia_SpecialActivity5.png','images/Disney_SocialMedia_SpecialActivity6.png','images/Disney_SocialMedia_SpecialActivity7.png'] },
+  'europe-itinerary': { name:'Europe Itinerary', cat:'Itinerary', images:['images/Europe_Itinerary_Page1.png','images/Europe_Itinerary_Page2.png'] },
+  'yunnan-itinerary': { name:'Yunnan Tour Itinerary', cat:'Itinerary', images:['images/Yunnan_TourItinerary_Page1.png','images/Yunnan_TourItinerary_Page2.png','images/Yunnan_TourItinerary_Page3.png','images/Yunnan_TourItinerary_Page4.png'] },
+  'natas-photos': { name:'NATAS Travel Fair', cat:'Event Photos', images:['images/NATAS2023_Feb.JPG','images/NATAS223_Aug.jpeg','images/NATAS2024_Feb1.jpg','images/NATAS2024_Aug.jpg','images/NATAS2025_March.jpeg','images/NATAS2025_Aug1.jpeg'] },
+  'sia-photos': { name:'SIA Time to Fly 2023', cat:'Event Photo', images:['images/TimeToFly_2023.jpg'] },
+  'cruise-photos': { name:'Cruise Roadshows', cat:'Event Photos', images:['images/CruiseRoadshow_RCI.JPG','images/CruiseRoadshow_RCI_1.JPG','images/CruiseRoadshow_RCI_2.JPG','images/CruiseRoadshow_RCI_3.JPG','images/CruiseRoadshow_RCI_5.jpg','images/CruiseRoadshow_SDC_1.jpg'] },
+  'other-fairs-photos': { name:'Travel Fairs', cat:'Event Photos', images:['images/TravelFair_KoreaFair2025.jpeg','images/TravelFair_JapanFair2022.jpeg','images/TravelFair_JapanFair2023.jpg','images/TravelFair_ChinaFair2024.jpg','images/TravelFair_MacauFair2024.jpeg','images/TravelFair_TaiwanFair.jpeg','images/TravelFair_TravelMalaysia2023.jpeg','images/Lightbox_1.jpeg'] },
+};
+
+let currentProject = null;
+let currentIdx = 0;
+
+function openProject(id) {
+  const p = projects[id];
+  if (!p) return;
+  currentProject = p;
+  currentIdx = 0;
+  document.getElementById('plbCat').textContent = p.cat;
+  document.getElementById('plbName').textContent = p.name;
+  renderPlbImage();
+  renderThumbs();
+  document.getElementById('projLightbox').classList.add('open');
+  document.body.style.overflow = 'hidden';
+}
+
+function renderPlbImage() {
+  const p = currentProject;
+  document.getElementById('plbImg').src = p.images[currentIdx];
+  document.getElementById('plbImg').alt = p.name;
+  document.getElementById('plbCounter').textContent = (currentIdx + 1) + ' / ' + p.images.length;
+  document.querySelectorAll('.plb-thumb').forEach((t,i) => t.classList.toggle('active', i === currentIdx));
+}
+
+function renderThumbs() {
+  const container = document.getElementById('plbThumbs');
+  container.innerHTML = '';
+  currentProject.images.forEach((src, i) => {
+    const img = document.createElement('img');
+    img.src = src;
+    img.className = 'plb-thumb' + (i === 0 ? ' active' : '');
+    img.onclick = () => { currentIdx = i; renderPlbImage(); };
+    container.appendChild(img);
   });
+}
 
-  // Nav active highlight on scroll
-  const sections = document.querySelectorAll('section[id]');
-  const navLinks = document.querySelectorAll('.nav-links a');
-  window.addEventListener('scroll',()=>{
-    let current = '';
-    sections.forEach(s=>{
-      if(window.scrollY >= s.offsetTop - 120) current = s.getAttribute('id');
-    });
-    navLinks.forEach(a=>{
-      a.style.opacity = a.getAttribute('href')==='#'+current ? '1' : '0.7';
-    });
-  });
+function plbNav(dir) {
+  const total = currentProject.images.length;
+  currentIdx = (currentIdx + dir + total) % total;
+  renderPlbImage();
+  // scroll thumb into view
+  const thumbs = document.querySelectorAll('.plb-thumb');
+  if (thumbs[currentIdx]) thumbs[currentIdx].scrollIntoView({behavior:'smooth',block:'nearest',inline:'center'});
+}
 
-  // Portfolio tabs
-  function switchTab(tabId, btn) {
-    document.querySelectorAll('.tab-panel').forEach(p => p.style.display = 'none');
-    document.querySelectorAll('.port-tab').forEach(b => b.classList.remove('active'));
-    document.getElementById(tabId).style.display = 'block';
-    btn.classList.add('active');
-  }
+function closeProject() {
+  document.getElementById('projLightbox').classList.remove('open');
+  document.body.style.overflow = '';
+}
 
-  // Lightbox
-  let currentImages = [];
-  let currentIndex = 0;
+document.getElementById('projLightbox').addEventListener('click', function(e) {
+  if (e.target === this) closeProject();
+});
 
-  function openLightbox(item) {
-    const img = item.querySelector('img');
-    if (!img) return;
-    const panel = item.closest('.tab-panel');
-    const allItems = panel.querySelectorAll('.gal-item img');
-    currentImages = Array.from(allItems).map(i => ({src: i.src, alt: i.alt}));
-    currentIndex = Array.from(allItems).indexOf(img);
-    showImage(currentIndex);
-    document.getElementById('lightbox').classList.add('open');
-    document.body.style.overflow = 'hidden';
-  }
-
-  function showImage(idx) {
-    const lb = document.getElementById('lb-img');
-    const cap = document.getElementById('lb-caption');
-    lb.src = currentImages[idx].src;
-    cap.textContent = currentImages[idx].alt;
-    currentIndex = idx;
-  }
-
-  function changeImage(dir) {
-    let next = currentIndex + dir;
-    if (next < 0) next = currentImages.length - 1;
-    if (next >= currentImages.length) next = 0;
-    showImage(next);
-    event.stopPropagation();
-  }
-
-  function closeLightbox(e) {
-    if (!e || e.target === document.getElementById('lightbox') || e.target.classList.contains('lb-close')) {
-      document.getElementById('lightbox').classList.remove('open');
-      document.body.style.overflow = '';
-    }
-  }
-
-  document.addEventListener('keydown', function(e) {
-    const lb = document.getElementById('lightbox');
-    if (!lb.classList.contains('open')) return;
-    if (e.key === 'ArrowRight') changeImage(1);
-    if (e.key === 'ArrowLeft') changeImage(-1);
-    if (e.key === 'Escape') closeLightbox({target: lb});
-  });
-
+document.addEventListener('keydown', e => {
+  if (!document.getElementById('projLightbox').classList.contains('open')) return;
+  if (e.key === 'ArrowRight') plbNav(1);
+  if (e.key === 'ArrowLeft') plbNav(-1);
+  if (e.key === 'Escape') closeProject();
+});
 </script>
 </body>
 </html>
